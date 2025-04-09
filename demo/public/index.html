@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Indy Dev Dan YouTube Analytics</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    :root {
+      --bg-color: #121212;
+      --text-color: #e0e0e0;
+      --accent-color: #ff0000;
+      --card-bg: #1e1e1e;
+      --header-bg: #252525;
+      --chart-grid: #333333;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      line-height: 1.6;
+      padding: 20px;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    header {
+      background-color: var(--header-bg);
+      padding: 20px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    
+    .header-content {
+      flex: 1;
+    }
+    
+    .channel-avatar {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      margin-right: 15px;
+    }
+    
+    .channel-info {
+      display: flex;
+      align-items: center;
+    }
+    
+    .channel-stats {
+      display: flex;
+      margin-top: 10px;
+    }
+    
+    .stat {
+      margin-right: 20px;
+    }
+    
+    .stat-value {
+      font-weight: bold;
+      font-size: 1.1em;
+    }
+    
+    .chart-container {
+      background-color: var(--card-bg);
+      padding: 20px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      position: relative;
+      height: 400px;
+    }
+    
+    .loading {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      font-size: 1.2rem;
+    }
+    
+    .error {
+      color: var(--accent-color);
+      text-align: center;
+      padding: 20px;
+    }
+    
+    .tooltip {
+      position: absolute;
+      background: rgba(0, 0, 0, 0.8);
+      color: white;
+      padding: 10px;
+      border-radius: 4px;
+      pointer-events: none;
+      transform: translate(-50%, -100%);
+      max-width: 300px;
+      display: none;
+      z-index: 100;
+    }
+    
+    .tooltip h3 {
+      font-size: 14px;
+      margin-bottom: 5px;
+    }
+    
+    .tooltip p {
+      font-size: 12px;
+      margin: 2px 0;
+    }
+    
+    .video-list {
+      background-color: var(--card-bg);
+      padding: 20px;
+      border-radius: 8px;
+      height: 300px;
+      overflow-y: auto;
+    }
+    
+    .video-card {
+      display: flex;
+      margin-bottom: 15px;
+      padding: 10px;
+      border-radius: 4px;
+      background-color: var(--header-bg);
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
+    
+    .video-card:hover {
+      background-color: #303030;
+    }
+    
+    .video-card img {
+      width: 120px;
+      height: 68px;
+      object-fit: cover;
+      margin-right: 10px;
+    }
+    
+    .video-details {
+      flex: 1;
+    }
+    
+    .video-title {
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+    
+    .video-meta {
+      font-size: 0.9em;
+      color: #aaa;
+    }
+    
+    .video-stats {
+      display: flex;
+      margin-top: 5px;
+    }
+    
+    .video-stats span {
+      margin-right: 15px;
+      font-size: 0.85em;
+    }
+    
+    .chart-title {
+      font-size: 1.2rem;
+      margin-bottom: 15px;
+      font-weight: bold;
+    }
+    
+    .period-selector {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 10px;
+      gap: 10px;
+    }
+    
+    .period-selector button {
+      background-color: var(--header-bg);
+      border: none;
+      color: var(--text-color);
+      padding: 5px 15px;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
+    
+    .period-selector button.active {
+      background-color: var(--accent-color);
+    }
+    
+    .period-selector button:hover {
+      background-color: #303030;
+    }
+    
+    @media (max-width: 768px) {
+      .channel-stats {
+        flex-direction: column;
+      }
+      
+      .stat {
+        margin-bottom: 10px;
+      }
+      
+      .video-card {
+        flex-direction: column;
+      }
+      
+      .video-card img {
+        width: 100%;
+        height: auto;
+        margin-bottom: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="channel-info">
+        <img id="channel-avatar" class="channel-avatar" src="" alt="Channel Avatar">
+        <div class="header-content">
+          <h1 id="channel-title">Indy Dev Dan</h1>
+          <div class="channel-stats">
+            <div class="stat">
+              <div>Subscribers</div>
+              <div id="subscriber-count" class="stat-value">-</div>
+            </div>
+            <div class="stat">
+              <div>Videos</div>
+              <div id="video-count" class="stat-value">-</div>
+            </div>
+            <div class="stat">
+              <div>Total Views</div>
+              <div id="view-count" class="stat-value">-</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    
+    <!-- Historical View Growth Chart -->
+    <div class="chart-container">
+      <div class="chart-title">Historical View Growth</div>
+      <div class="period-selector">
+        <button id="monthly-btn" class="active">Monthly</button>
+        <button id="quarterly-btn">Quarterly</button>
+        <button id="yearly-btn">Yearly</button>
+      </div>
+      <div id="historical-loading" class="loading">Loading historical data...</div>
+      <canvas id="historicalChart"></canvas>
+      <div id="historical-tooltip" class="tooltip"></div>
+    </div>
+    
+    <div class="chart-container">
+      <div class="chart-title">Individual Video Views</div>
+      <div id="loading" class="loading">Loading channel data...</div>
+      <canvas id="viewsChart"></canvas>
+      <div id="tooltip" class="tooltip"></div>
+    </div>
+    
+    <div class="video-list" id="video-list">
+      <!-- Videos will be populated here -->
+    </div>
+  </div>
+  
+  <script>
+    // Global variables
+    let chart;
+    let historicalChart;
+    let videos = [];
+    let historicalData = {
+      monthly: [],
+      quarterly: [],
+      yearly: []
+    };
+    let currentPeriod = 'monthly';
+    
+    // Format large numbers with commas
+    function formatNumber(num) {
+      return num ? num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") : '0';
+    }
+    
+    // Format date to readable format
+    function formatDate(dateString) {
+      const options = { year: 'numeric', month: 'short', day: 'numeric' };
+      return new Date(dateString).toLocaleDateString(undefined, options);
+    }
+    
+    // Initialize the channel information
+    async function initChannel() {
+      try {
+        const response = await fetch('/api/channel');
+        const data = await response.json();
+        
+        if (data.items && data.items.length > 0) {
+          const channel = data.items[0];
+          
+          // Set channel details
+          document.getElementById('channel-title').textContent = channel.snippet.title;
+          document.getElementById('channel-avatar').src = channel.snippet.thumbnails.medium.url;
+          document.getElementById('subscriber-count').textContent = formatNumber(channel.statistics.subscriberCount);
+          document.getElementById('video-count').textContent = formatNumber(channel.statistics.videoCount);
+          document.getElementById('view-count').textContent = formatNumber(channel.statistics.viewCount);
+        }
+      } catch (error) {
+        console.error('Error loading channel data:', error);
+      }
+    }
+    
+    // Initialize the historical chart with view growth data
+    async function initHistoricalChart() {
+      document.getElementById('historical-loading').style.display = 'flex';
+      
+      try {
+        const response = await fetch('/api/historical-views');
+        historicalData = await response.json();
+        
+        if (!historicalData.monthly || historicalData.monthly.length === 0) {
+          document.getElementById('historical-loading').textContent = 'No historical data found';
+          return;
+        }
+        
+        // Hide loading indicator
+        document.getElementById('historical-loading').style.display = 'none';
+        
+        // Create the historical chart with monthly data by default
+        createHistoricalChart('monthly');
+        
+        // Set up period selector buttons
+        document.getElementById('monthly-btn').addEventListener('click', () => updateHistoricalPeriod('monthly'));
+        document.getElementById('quarterly-btn').addEventListener('click', () => updateHistoricalPeriod('quarterly'));
+        document.getElementById('yearly-btn').addEventListener('click', () => updateHistoricalPeriod('yearly'));
+        
+      } catch (error) {
+        document.getElementById('historical-loading').textContent = 'Error loading historical data';
+        console.error('Error loading historical data:', error);
+      }
+    }
+    
+    // Create the historical chart based on selected period
+    function createHistoricalChart(period) {
+      currentPeriod = period;
+      const data = historicalData[period];
+      
+      // Prepare data for chart
+      const labels = data.map(item => item.period);
+      const cumulativeViews = data.map(item => item.cumulativeViews);
+      const viewsInPeriod = data.map(item => item.viewsInPeriod);
+      
+      // Destroy previous chart if it exists
+      if (historicalChart) {
+        historicalChart.destroy();
+      }
+      
+      // Create the chart
+      const ctx = document.getElementById('historicalChart').getContext('2d');
+      historicalChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: labels,
+          datasets: [
+            {
+              label: 'Cumulative Views',
+              data: cumulativeViews,
+              backgroundColor: 'rgba(255, 0, 0, 0.2)',
+              borderColor: 'rgba(255, 0, 0, 1)',
+              borderWidth: 2,
+              pointBackgroundColor: 'rgba(255, 0, 0, 1)',
+              pointRadius: 4,
+              pointHoverRadius: 6,
+              tension: 0.2,
+              yAxisID: 'y'
+            },
+            {
+              label: 'Views in Period',
+              data: viewsInPeriod,
+              backgroundColor: 'rgba(0, 123, 255, 0.2)',
+              borderColor: 'rgba(0, 123, 255, 1)',
+              borderWidth: 2,
+              pointBackgroundColor: 'rgba(0, 123, 255, 1)',
+              pointRadius: 4,
+              pointHoverRadius: 6,
+              tension: 0.2,
+              yAxisID: 'y1'
+            }
+          ]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          scales: {
+            x: {
+              grid: {
+                color: 'rgba(255, 255, 255, 0.1)'
+              },
+              ticks: {
+                color: '#e0e0e0'
+              }
+            },
+            y: {
+              type: 'linear',
+              display: true,
+              position: 'left',
+              title: {
+                display: true,
+                text: 'Cumulative Views',
+                color: '#e0e0e0'
+              },
+              beginAtZero: true,
+              grid: {
+                color: 'rgba(255, 255, 255, 0.1)'
+              },
+              ticks: {
+                color: '#e0e0e0',
+                callback: function(value) {
+                  if (value >= 1000000) {
+                    return (value / 1000000).toFixed(1) + 'M';
+                  } else if (value >= 1000) {
+                    return (value / 1000).toFixed(1) + 'K';
+                  }
+                  return value;
+                }
+              }
+            },
+            y1: {
+              type: 'linear',
+              display: true,
+              position: 'right',
+              title: {
+                display: true,
+                text: 'Views in Period',
+                color: '#e0e0e0'
+              },
+              beginAtZero: true,
+              grid: {
+                drawOnChartArea: false
+              },
+              ticks: {
+                color: '#e0e0e0',
+                callback: function(value) {
+                  if (value >= 1000000) {
+                    return (value / 1000000).toFixed(1) + 'M';
+                  } else if (value >= 1000) {
+                    return (value / 1000).toFixed(1) + 'K';
+                  }
+                  return value;
+                }
+              }
+            }
+          },
+          plugins: {
+            tooltip: {
+              callbacks: {
+                title: function(tooltipItems) {
+                  return tooltipItems[0].label;
+                },
+                label: function(context) {
+                  const label = context.dataset.label || '';
+                  const value = context.parsed.y;
+                  return `${label}: ${formatNumber(value)}`;
+                }
+              }
+            },
+            legend: {
+              labels: {
+                color: '#e0e0e0'
+              }
+            }
+          },
+          interaction: {
+            intersect: false,
+            mode: 'index'
+          }
+        }
+      });
+      
+      // Update active button state
+      document.querySelectorAll('.period-selector button').forEach(btn => {
+        btn.classList.remove('active');
+      });
+      document.getElementById(`${period}-btn`).classList.add('active');
+    }
+    
+    // Update historical chart based on selected period
+    function updateHistoricalPeriod(period) {
+      if (period !== currentPeriod) {
+        createHistoricalChart(period);
+      }
+    }
+    
+    // Initialize the video chart
+    async function initChart() {
+      document.getElementById('loading').style.display = 'flex';
+      
+      try {
+        const response = await fetch('/api/videos');
+        videos = await response.json();
+        
+        if (videos.length === 0) {
+          document.getElementById('loading').textContent = 'No videos found';
+          return;
+        }
+        
+        // Hide loading indicator
+        document.getElementById('loading').style.display = 'none';
+        
+        // Prepare data for chart
+        const labels = videos.map(video => new Date(video.publishedAt));
+        const viewCounts = videos.map(video => video.viewCount);
+        
+        // Create the chart
+        const ctx = document.getElementById('viewsChart').getContext('2d');
+        chart = new Chart(ctx, {
+          type: 'line',
+          data: {
+            labels: labels,
+            datasets: [{
+              label: 'Video Views',
+              data: viewCounts,
+              backgroundColor: 'rgba(255, 0, 0, 0.2)',
+              borderColor: 'rgba(255, 0, 0, 1)',
+              borderWidth: 2,
+              pointBackgroundColor: 'rgba(255, 0, 0, 1)',
+              pointRadius: 4,
+              pointHoverRadius: 6,
+              tension: 0.2
+            }]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+              x: {
+                type: 'time',
+                time: {
+                  unit: 'month',
+                  displayFormats: {
+                    month: 'MMM YYYY'
+                  }
+                },
+                grid: {
+                  color: 'rgba(255, 255, 255, 0.1)'
+                },
+                ticks: {
+                  color: '#e0e0e0'
+                }
+              },
+              y: {
+                beginAtZero: true,
+                grid: {
+                  color: 'rgba(255, 255, 255, 0.1)'
+                },
+                ticks: {
+                  color: '#e0e0e0',
+                  callback: function(value) {
+                    if (value >= 1000000) {
+                      return (value / 1000000).toFixed(1) + 'M';
+                    } else if (value >= 1000) {
+                      return (value / 1000).toFixed(1) + 'K';
+                    }
+                    return value;
+                  }
+                }
+              }
+            },
+            plugins: {
+              tooltip: {
+                enabled: false,
+                external: function(context) {
+                  // Tooltip Element
+                  let tooltipEl = document.getElementById('tooltip');
+                  
+                  // Hide if no tooltip
+                  if (context.tooltip.opacity === 0) {
+                    tooltipEl.style.display = 'none';
+                    return;
+                  }
+                  
+                  // Set Text
+                  if (context.tooltip.body) {
+                    const index = context.tooltip.dataPoints[0].dataIndex;
+                    const video = videos[index];
+                    
+                    tooltipEl.innerHTML = `
+                      <h3>${video.title}</h3>
+                      <p>Published: ${formatDate(video.publishedAt)}</p>
+                      <p>Views: ${formatNumber(video.viewCount)}</p>
+                    `;
+                  }
+                  
+                  // Display, position, and set styles for font
+                  tooltipEl.style.display = 'block';
+                  tooltipEl.style.left = context.tooltip.caretX + 'px';
+                  tooltipEl.style.top = context.tooltip.caretY + 'px';
+                }
+              },
+              legend: {
+                labels: {
+                  color: '#e0e0e0'
+                }
+              }
+            },
+            interaction: {
+              intersect: false,
+              mode: 'index'
+            }
+          }
+        });
+        
+        // Populate video list
+        populateVideoList(videos);
+        
+      } catch (error) {
+        document.getElementById('loading').textContent = 'Error loading video data';
+        console.error('Error loading videos:', error);
+      }
+    }
+    
+    // Populate the video list section
+    function populateVideoList(videos) {
+      const videoList = document.getElementById('video-list');
+      videoList.innerHTML = '';
+      
+      // Sort by view count (descending)
+      const sortedVideos = [...videos].sort((a, b) => b.viewCount - a.viewCount);
+      
+      // Show top 20 videos
+      sortedVideos.slice(0, 20).forEach(video => {
+        const videoCard = document.createElement('div');
+        videoCard.className = 'video-card';
+        videoCard.innerHTML = `
+          <img src="${video.thumbnail}" alt="${video.title}">
+          <div class="video-details">
+            <div class="video-title">${video.title}</div>
+            <div class="video-meta">${formatDate(video.publishedAt)}</div>
+            <div class="video-stats">
+              <span>👁️ ${formatNumber(video.viewCount)}</span>
+              <span>👍 ${formatNumber(video.likeCount)}</span>
+              <span>💬 ${formatNumber(video.commentCount)}</span>
+            </div>
+          </div>
+        `;
+        
+        // Add click event to highlight on chart
+        videoCard.addEventListener('click', () => {
+          const index = videos.findIndex(v => v.id === video.id);
+          if (index !== -1) {
+            // Highlight the point on chart
+            if (chart) {
+              chart.setActiveElements([{
+                datasetIndex: 0,
+                index: index
+              }]);
+              chart.update();
+            }
+          }
+        });
+        
+        videoList.appendChild(videoCard);
+      });
+    }
+    
+    // Initialize the application
+    async function init() {
+      await initChannel();
+      await initHistoricalChart();
+      await initChart();
+    }
+    
+    // Start the application when DOM is loaded
+    document.addEventListener('DOMContentLoaded', init);
+  </script>
+</body>
+</html> 

@@ -1,0 +1,848 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metaflow_reference>
+  <metadata>
+    <title>Metaflow GPU Resource Management with Kubernetes Integration</title>
+    <description>A comprehensive reference guide for managing GPU resources in Metaflow with a focus on Kubernetes integration</description>
+    <version>
+      <metaflow_version>Latest as of document creation</metaflow_version>
+      <document_version>1.0</document_version>
+      <creation_date>2025-03-26</creation_date>
+    </version>
+    <scope>
+      <primary_focus>GPU and hardware-accelerated computing with Metaflow</primary_focus>
+      <secondary_focus>Integration between @resources decorator and Kubernetes orchestration</secondary_focus>
+      <tertiary_focus>Distributed computing across multiple GPU nodes</tertiary_focus>
+    </scope>
+  </metadata>
+  
+  <overview>
+    <description>
+      Metaflow enables seamless access to hardware-accelerated computing, particularly GPUs, when using AWS Batch or Kubernetes. It supports a variety of execution patterns including single accelerators, multiple accelerators on a single instance, and distributed computing across multiple GPU instances, all while maintaining the same user-friendly abstraction layer.
+    </description>
+    <execution_environments>
+      <environment name="local">
+        <description>Run flows locally like any Python script or notebook</description>
+        <gpu_support>Limited to local hardware availability</gpu_support>
+      </environment>
+      <environment name="aws_batch">
+        <description>Execute steps as AWS Batch jobs</description>
+        <gpu_support>Full support for AWS GPU instances and AWS-specific accelerators like Trainium and Inferentia</gpu_support>
+        <activation>python flow.py run --with batch</activation>
+      </environment>
+      <environment name="kubernetes">
+        <description>Execute steps on a Kubernetes cluster</description>
+        <gpu_support>Support for any GPU hardware exposed by Kubernetes Device Plugins (nvidia.com/gpu, amd.com/gpu)</gpu_support>
+        <activation>python flow.py run --with kubernetes</activation>
+      </environment>
+    </execution_environments>
+    <key_benefits>
+      <benefit>Consistent interface for local development and cloud execution</benefit>
+      <benefit>Seamless scaling from single GPU to distributed multi-node training</benefit>
+      <benefit>Ability to mix compute environments within a single flow</benefit>
+      <benefit>Integration with popular ML frameworks through specialized decorators</benefit>
+      <benefit>Automatic code packaging and dependency management</benefit>
+    </key_benefits>
+  </overview>
+  
+  <compute_patterns>
+    <pattern name="local_execution">
+      <description>Run flows locally without special decorators</description>
+      <gpu_relevance>Can use local GPUs via libraries like PyTorch or XGBoost</gpu_relevance>
+      <example>python flow.py run</example>
+    </pattern>
+    <pattern name="remote_execution">
+      <description>Run steps remotely using @resources and cloud execution</description>
+      <gpu_relevance>Access cloud GPU instances with @resources(gpu=N)</gpu_relevance>
+      <example>python flow.py run --with kubernetes</example>
+    </pattern>
+    <pattern name="parallel_execution">
+      <description>Execute multiple steps in parallel using branch or foreach</description>
+      <gpu_relevance>Each parallel task can request GPU resources independently</gpu_relevance>
+      <example>self.next(self.train, foreach='model_configs')</example>
+    </pattern>
+    <pattern name="distributed_computing">
+      <description>Set up an ephemeral compute cluster for interdependent tasks</description>
+      <gpu_relevance>Train large models across multiple GPU instances</gpu_relevance>
+      <example>@torchrun @step def train_distributed(self): current.torch.run(...)</example>
+    </pattern>
+  </compute_patterns>
+  
+  <decorators>
+    <decorator name="resources">
+      <description>Specifies the resources needed when executing this step, independent of the specific compute layer (@batch, @kubernetes)</description>
+      <source_code_reference file="resources_decorator.py"/>
+      <parameters>
+        <parameter name="cpu" type="int" default="1">
+          <description>Number of CPUs required for this step</description>
+          <source_code_reference file="resources_decorator.py" line="48"/>
+          <usage_context>
+            <context name="local">Ignored for local execution</context>
+            <context name="kubernetes">Maps to Kubernetes CPU requests</context>
+            <context name="batch">Maps to AWS Batch CPU requirements</context>
+          </usage_context>
+        </parameter>
+        <parameter name="gpu" type="int" default="None">
+          <description>Number of GPUs required for this step</description>
+          <source_code_reference file="resources_decorator.py" line="49"/>
+          <related_parameters>
+            <parameter_ref name="gpu_vendor" decorator="kubernetes"/>
+          </related_parameters>
+          <usage_context>
+            <context name="local">Ignored for local execution</context>
+            <context name="kubernetes">Maps to Kubernetes GPU requests based on gpu_vendor</context>
+            <context name="batch">Maps to AWS Batch GPU requirements</context>
+          </usage_context>
+        </parameter>
+        <parameter name="disk" type="int" default="None">
+          <description>Disk size (in MB) required for this step. Only applies on Kubernetes.</description>
+          <source_code_reference file="resources_decorator.py" line="50"/>
+          <usage_context>
+            <context name="local">Ignored for local execution</context>
+            <context name="kubernetes">Maps to Kubernetes disk requests</context>
+            <context name="batch">Ignored for AWS Batch</context>
+          </usage_context>
+        </parameter>
+        <parameter name="memory" type="int" default="4096">
+          <description>Memory size (in MB) required for this step</description>
+          <source_code_reference file="resources_decorator.py" line="51"/>
+          <usage_context>
+            <context name="local">Ignored for local execution</context>
+            <context name="kubernetes">Maps to Kubernetes memory requests</context>
+            <context name="batch">Maps to AWS Batch memory requirements</context>
+          </usage_context>
+        </parameter>
+        <parameter name="shared_memory" type="int" default="None">
+          <description>The value for the size (in MiB) of the /dev/shm volume for this step. Maps to the `--shm-size` option in Docker.</description>
+          <source_code_reference file="resources_decorator.py" line="52"/>
+          <usage_context>
+            <context name="local">Ignored for local execution</context>
+            <context name="kubernetes">Maps to Kubernetes shared memory settings</context>
+            <context name="batch">Maps to AWS Batch shared memory settings</context>
+          </usage_context>
+        </parameter>
+      </parameters>
+    </decorator>
+    
+    <decorator name="kubernetes">
+      <description>Specifies that a step should execute on Kubernetes</description>
+      <source_code_reference file="kubernetes_decorator.py"/>
+      <parameters>
+        <parameter name="cpu" type="int" default="1">
+          <description>Number of CPUs required for this step. If `@resources` is also present, the maximum value from all decorators is used.</description>
+          <source_code_reference file="kubernetes_decorator.py" line="45"/>
+          <related_parameters>
+            <parameter_ref name="cpu" decorator="resources"/>
+          </related_parameters>
+          <constraints>
+            <constraint>Should be greater than 0</constraint>
+          </constraints>
+        </parameter>
+        <parameter name="memory" type="int" default="4096">
+          <description>Memory size (in MB) required for this step. If `@resources` is also present, the maximum value from all decorators is used.</description>
+          <source_code_reference file="kubernetes_decorator.py" line="46"/>
+          <related_parameters>
+            <parameter_ref name="memory" decorator="resources"/>
+          </related_parameters>
+          <constraints>
+            <constraint>Should be greater than 0</constraint>
+          </constraints>
+        </parameter>
+        <parameter name="disk" type="int" default="10240">
+          <description>Disk size (in MB) required for this step. If `@resources` is also present, the maximum value from all decorators is used.</description>
+          <source_code_reference file="kubernetes_decorator.py" line="47"/>
+          <related_parameters>
+            <parameter_ref name="disk" decorator="resources"/>
+          </related_parameters>
+          <constraints>
+            <constraint>Should be greater than 0</constraint>
+          </constraints>
+        </parameter>
+        <parameter name="image" type="str" default="None">
+          <description>Docker image to use when launching on Kubernetes. If not specified, and METAFLOW_KUBERNETES_CONTAINER_IMAGE is specified, that image is used. If not, a default Docker image mapping to the current version of Python is used.</description>
+          <source_code_reference file="kubernetes_decorator.py" line="50"/>
+        </parameter>
+        <parameter name="image_pull_policy" type="str" default="KUBERNETES_IMAGE_PULL_POLICY">
+          <description>If given, the imagePullPolicy to be applied to the Docker image of the step.</description>
+          <source_code_reference file="kubernetes_decorator.py" line="54"/>
+        </parameter>
+        <parameter name="service_account" type="str" default="METAFLOW_KUBERNETES_SERVICE_ACCOUNT">
+          <description>Kubernetes service account to use when launching pod in Kubernetes.</description>
+          <source_code_reference file="kubernetes_decorator.py" line="56"/>
+        </parameter>
+        <parameter name="secrets" type="List[str]" default="None">
+          <description>Kubernetes secrets to use when launching pod in Kubernetes. These secrets are in addition to the ones defined in `METAFLOW_KUBERNETES_SECRETS` in Metaflow configuration.</description>
+          <source_code_reference file="kubernetes_decorator.py" line="58"/>
+        </parameter>
+        <parameter name="node_selector" type="Union[Dict[str,str], str]" default="None">
+          <description>Kubernetes node selector(s) to apply to the pod running the task. Can be passed in as a comma separated string of values e.g. 'kubernetes.io/os=linux,kubernetes.io/arch=amd64' or as a dictionary {'kubernetes.io/os': 'linux', 'kubernetes.io/arch': 'amd64'}</description>
+          <source_code_reference file="kubernetes_decorator.py" line="61"/>
+        </parameter>
+        <parameter name="namespace" type="str" default="METAFLOW_KUBERNETES_NAMESPACE">
+          <description>Kubernetes namespace to use when launching pod in Kubernetes.</description>
+          <source_code_reference file="kubernetes_decorator.py" line="65"/>
+        </parameter>
+        <parameter name="gpu" type="int" default="None">
+          <description>Number of GPUs required for this step. A value of zero implies that the scheduled node should not have GPUs.</description>
+          <source_code_reference file="kubernetes_decorator.py" line="67"/>
+          <related_parameters>
+            <parameter_ref name="gpu" decorator="resources"/>
+            <parameter_ref name="gpu_vendor" decorator="kubernetes"/>
+          </related_parameters>
+          <constraints>
+            <constraint>Should be an integer</constraint>
+          </constraints>
+        </parameter>
+        <parameter name="gpu_vendor" type="str" default="KUBERNETES_GPU_VENDOR">
+          <description>The vendor of the GPUs to be used for this step.</description>
+          <source_code_reference file="kubernetes_decorator.py" line="69"/>
+          <constraints>
+            <constraint>Currently supports 'amd' or 'nvidia' (case-insensitive)</constraint>
+          </constraints>
+        </parameter>
+        <parameter name="tolerations" type="List[str]" default="[]">
+          <description>The default is extracted from METAFLOW_KUBERNETES_TOLERATIONS. Kubernetes tolerations to use when launching pod in Kubernetes.</description>
+          <source_code_reference file="kubernetes_decorator.py" line="71"/>
+          <example>
+            [{"key": "arch", "operator": "Equal", "value": "amd"}, {"key": "foo", "operator": "Equal", "value": "bar"}]
+          </example>
+        </parameter>
+        <parameter name="labels" type="Dict[str, str]" default="None">
+          <description>Kubernetes labels to use when launching pod in Kubernetes.</description>
+          <source_code_reference file="kubernetes_decorator.py" line="74"/>
+          <example>
+            {"test-label": "value", "another-label":"value2"}
+          </example>
+        </parameter>
+        <parameter name="annotations" type="Dict[str, str]" default="None">
+          <description>Kubernetes annotations to use when launching pod in Kubernetes.</description>
+          <source_code_reference file="kubernetes_decorator.py" line="76"/>
+          <example>
+            {"note": "value", "another-note": "value2"}
+          </example>
+        </parameter>
+        <parameter name="use_tmpfs" type="bool" default="False">
+          <description>This enables an explicit tmpfs mount for this step.</description>
+          <source_code_reference file="kubernetes_decorator.py" line="78"/>
+        </parameter>
+        <parameter name="tmpfs_tempdir" type="bool" default="True">
+          <description>sets METAFLOW_TEMPDIR to tmpfs_path if set for this step.</description>
+          <source_code_reference file="kubernetes_decorator.py" line="79"/>
+        </parameter>
+        <parameter name="tmpfs_size" type="int" default="None">
+          <description>The value for the size (in MiB) of the tmpfs mount for this step. This parameter maps to the `--tmpfs` option in Docker. Defaults to 50% of the memory allocated for this step.</description>
+          <source_code_reference file="kubernetes_decorator.py" line="80"/>
+          <constraints>
+            <constraint>Should be an integer greater than 0</constraint>
+          </constraints>
+        </parameter>
+        <parameter name="tmpfs_path" type="str" default="/metaflow_temp">
+          <description>Path to tmpfs mount for this step.</description>
+          <source_code_reference file="kubernetes_decorator.py" line="83"/>
+        </parameter>
+        <parameter name="persistent_volume_claims" type="Dict[str, str]" default="None">
+          <description>A map (dictionary) of persistent volumes to be mounted to the pod for this step. The map is from persistent volumes to the path to which the volume is to be mounted, e.g., `{'pvc-name': '/path/to/mount/on'}`.</description>
+          <source_code_reference file="kubernetes_decorator.py" line="84"/>
+        </parameter>
+        <parameter name="shared_memory" type="int" default="None">
+          <description>Shared memory size (in MiB) required for this step</description>
+          <source_code_reference file="kubernetes_decorator.py" line="86"/>
+          <related_parameters>
+            <parameter_ref name="shared_memory" decorator="resources"/>
+          </related_parameters>
+          <constraints>
+            <constraint>Should be an integer greater than 0</constraint>
+          </constraints>
+        </parameter>
+        <parameter name="port" type="int" default="None">
+          <description>Port number to specify in the Kubernetes job object</description>
+          <source_code_reference file="kubernetes_decorator.py" line="87"/>
+        </parameter>
+        <parameter name="compute_pool" type="str" default="None">
+          <description>Compute pool to be used for for this step. If not specified, any accessible compute pool within the perimeter is used.</description>
+          <source_code_reference file="kubernetes_decorator.py" line="88"/>
+        </parameter>
+        <parameter name="hostname_resolution_timeout" type="int" default="10 * 60">
+          <description>Timeout in seconds for the workers tasks in the gang scheduled cluster to resolve the hostname of control task. Only applicable when @parallel is used.</description>
+          <source_code_reference file="kubernetes_decorator.py" line="90"/>
+        </parameter>
+        <parameter name="qos" type="str" default="Burstable">
+          <description>Quality of Service class to assign to the pod. Supported values are: Guaranteed, Burstable, BestEffort</description>
+          <source_code_reference file="kubernetes_decorator.py" line="91"/>
+          <constraints>
+            <constraint>Must be one of: Guaranteed, Burstable (case-insensitive)</constraint>
+          </constraints>
+        </parameter>
+      </parameters>
+      <behavior>
+        <integration>
+          <with_decorator name="resources">
+            <description>When both @kubernetes and @resources decorators are present, the maximum value for each resource parameter (cpu, memory, disk, gpu) is used.</description>
+            <source_code_reference file="kubernetes_decorator.py" line="197"/>
+          </with_decorator>
+          <with_decorator name="batch">
+            <description>Steps cannot be marked for execution on both AWS Batch and Kubernetes simultaneously.</description>
+            <source_code_reference file="kubernetes_decorator.py" line="183"/>
+          </with_decorator>
+          <with_decorator name="parallel">
+            <description>When @parallel and @kubernetes are used together, Metaflow sets up environment variables to enable communication between nodes.</description>
+            <source_code_reference file="kubernetes_decorator.py" line="503"/>
+            <limitations>
+              <limitation>@catch is not supported with @parallel on Kubernetes</limitation>
+            </limitations>
+          </with_decorator>
+        </integration>
+        <validation>
+          <rule>CPU, Disk, and Memory values should be greater than 0</rule>
+          <rule>GPU value should be an integer</rule>
+          <rule>GPU vendor must be 'amd' or 'nvidia' (case-insensitive)</rule>
+          <rule>QoS class must be one of: Guaranteed, Burstable (case-insensitive)</rule>
+        </validation>
+      </behavior>
+    </decorator>
+  </decorators>
+  
+  <gpu_management>
+    <prerequisites>
+      <prerequisite>
+        <description>Add hardware-accelerated instances in your Metaflow stack</description>
+        <platform name="aws_batch">
+          <details>Configure AWS Batch compute environments with GPU instances</details>
+        </platform>
+        <platform name="kubernetes">
+          <details>Install Kubernetes Device Plugins to expose GPU resources</details>
+          <cloud_specific>
+            <cloud name="aws_eks">
+              <details>Use EKS-optimized accelerated Amazon Linux AMIs</details>
+              <reference>https://docs.aws.amazon.com/eks/latest/userguide/eks-optimized-ami.html#gpu-ami</reference>
+            </cloud>
+            <cloud name="gcp_gke">
+              <details>Follow GCP's guide about GPUs on GKE</details>
+              <reference>https://cloud.google.com/kubernetes-engine/docs/concepts/gpus</reference>
+            </cloud>
+            <cloud name="azure_aks">
+              <details>Follow Azure's guide about GPUs on AKS</details>
+              <reference>https://learn.microsoft.com/en-us/azure/aks/gpu-cluster</reference>
+            </cloud>
+          </cloud_specific>
+        </platform>
+      </prerequisite>
+      <prerequisite>
+        <description>Configure your flow to include necessary drivers and frameworks</description>
+        <details>Ensure that the Docker image used contains the required GPU drivers and ML frameworks</details>
+      </prerequisite>
+    </prerequisites>
+    
+    <usage_patterns>
+      <pattern name="single_gpu">
+        <description>Request a single GPU for a step</description>
+        <code_example>
+          @resources(gpu=1)
+          @step
+          def train_model(self):
+              # GPU-intensive training code
+        </code_example>
+      </pattern>
+      <pattern name="multiple_gpus_single_instance">
+        <description>Request multiple GPUs on a single instance</description>
+        <code_example>
+          @resources(gpu=4)
+          @step
+          def train_large_model(self):
+              # Multi-GPU training code
+        </code_example>
+      </pattern>
+      <pattern name="gpu_vendor_specification">
+        <description>Specify GPU vendor when using Kubernetes</description>
+        <code_example>
+          @kubernetes(gpu=2, gpu_vendor="nvidia")
+          @step
+          def train_with_specific_gpus(self):
+              # Training code for specific GPU vendor
+        </code_example>
+      </pattern>
+      <pattern name="command_line_resource_specification">
+        <description>Specify GPU resources on the command line</description>
+        <code_example>
+          python flow.py run --with kubernetes:gpu=2
+        </code_example>
+      </pattern>
+    </usage_patterns>
+    
+    <specialized_accelerators>
+      <accelerator name="aws_trainium">
+        <description>AWS-specific hardware accelerator for training</description>
+        <usage>
+          <code_example>
+            @batch(trainium=16)
+            @step
+            def train_with_trainium(self):
+                # Trainium-specific training code
+          </code_example>
+        </usage>
+        <platform>AWS Batch only</platform>
+      </accelerator>
+      <accelerator name="aws_inferentia">
+        <description>AWS-specific hardware accelerator for inference</description>
+        <usage>
+          <code_example>
+            @batch(inferentia=16)
+            @step
+            def inference_with_inferentia(self):
+                # Inferentia-specific inference code
+          </code_example>
+        </usage>
+        <platform>AWS Batch only</platform>
+      </accelerator>
+    </specialized_accelerators>
+    
+    <monitoring>
+      <tool name="gpu_profile">
+        <description>Monitor GPU devices and their utilization</description>
+        <usage>
+          <code_example>
+            @gpu_profile
+            @resources(gpu=1)
+            @step
+            def monitored_gpu_step(self):
+                # GPU code with utilization monitoring
+          </code_example>
+        </usage>
+        <package>metaflow-gpu-profile</package>
+        <repository>https://github.com/outerbounds/metaflow-gpu-profile</repository>
+      </tool>
+    </monitoring>
+  </gpu_management>
+  
+  <distributed_computing>
+    <description>
+      Metaflow's `@parallel` decorator orchestrates inter-dependent tasks by launching an ephemeral compute cluster on the fly, as a part of a Metaflow flow, benefiting from Metaflow features like dependency management, versioning, and production deployments.
+    </description>
+    
+    <framework_decorators>
+      <decorator name="torchrun">
+        <description>A `torchrun` command that runs `@step` function code on each node. Torch distributed is used under the hood to handle communication between nodes.</description>
+        <package>metaflow-torchrun</package>
+        <usage>
+          <code_example>
+            @torchrun
+            @step
+            def distributed_training(self):
+                current.torch.run(my_torch_distributed_program)
+          </code_example>
+        </usage>
+      </decorator>
+      
+      <decorator name="deepspeed">
+        <description>Form MPI cluster with passwordless SSH configured at task runtime. Submit the Deepspeed program and run.</description>
+        <package>metaflow-deepspeed</package>
+        <requirements>OpenSSH and OpenMPI installed in the Metaflow task container</requirements>
+        <usage>
+          <code_example>
+            @deepspeed
+            @step
+            def distributed_training(self):
+                current.deepspeed.run(my_deepspeed_program)
+          </code_example>
+        </usage>
+      </decorator>
+      
+      <decorator name="metaflow_ray">
+        <description>Forms a Ray cluster dynamically. Runs the `@step` function code on the control task as Ray's "head node".</description>
+        <package>metaflow-ray</package>
+        <usage>
+          <code_example>
+            @metaflow_ray
+            @step
+            def distributed_training(self):
+                # Ray code here
+          </code_example>
+        </usage>
+      </decorator>
+      
+      <decorator name="tensorflow">
+        <description>Run the `@step` function code on each node. This means the user picks the appropriate strategy in their code.</description>
+        <package>metaflow-tensorflow</package>
+        <usage>
+          <code_example>
+            @tensorflow
+            @step
+            def distributed_training(self):
+                # TensorFlow distributed strategy code
+          </code_example>
+        </usage>
+      </decorator>
+      
+      <decorator name="mpi">
+        <description>Forms an MPI cluster with passwordless SSH configured at task runtime. Users can submit a `mpi4py` program or compile, broadcast, and submit a C program.</description>
+        <package>metaflow-mpi</package>
+        <requirements>OpenSSH and an MPI implementation installed in the Metaflow task container</requirements>
+        <usage>
+          <code_example>
+            @mpi
+            @step
+            def distributed_training(self):
+                current.mpi.run(my_mpi_program)
+          </code_example>
+        </usage>
+      </decorator>
+    </framework_decorators>
+    
+    <multi_node_setup>
+      <description>
+        Under the hood, Metaflow guarantees that you get a desired kind and number of compute nodes running simultaneously, so that they are able to communicate and coordinate amongst each other.
+      </description>
+      <kubernetes_implementation>
+        <details>
+          Metaflow sets up environment variables to enable communication between nodes:
+          - MF_PARALLEL_MAIN_IP: IP address of the control node
+          - MF_PARALLEL_NUM_NODES: Total number of nodes in the cluster
+          - MF_PARALLEL_NODE_INDEX: Index of the current node in the cluster (0 for control node)
+        </details>
+        <source_code_reference file="kubernetes_decorator.py" line="503"/>
+      </kubernetes_implementation>
+      <worker_node_hostname_resolution>
+        <description>
+          When worker nodes start before the control node, they will wait for the control node's hostname to be resolvable within a reasonable timeout period.
+        </description>
+        <timeout parameter="hostname_resolution_timeout">10 minutes (600 seconds) by default</timeout>
+        <source_code_reference file="kubernetes_decorator.py" line="511"/>
+      </worker_node_hostname_resolution>
+    </multi_node_setup>
+    
+    <checkpoint_recommendation>
+      <description>
+        When running demanding training workload, it is advisable to use the `@checkpoint` decorator to ensure that no progress is lost even if a task hits a spurious failure.
+      </description>
+      <code_example>
+        @checkpoint
+        @resources(gpu=4)
+        @kubernetes
+        @step
+        def train_with_checkpoints(self):
+            # Long-running training with checkpoints
+      </code_example>
+    </checkpoint_recommendation>
+  </distributed_computing>
+  
+  <integration_patterns>
+    <decorator_integration primary="resources" secondary="kubernetes">
+      <description>
+        The @resources decorator specifies resource requirements that are interpreted by the @kubernetes decorator when executing in a Kubernetes environment.
+      </description>
+      <behavior>
+        When both decorators are present, the maximum value for each resource parameter is used.
+      </behavior>
+      <code_example>
+        @resources(memory=60000, cpu=1, gpu=1)
+        @kubernetes(namespace="ml-training")
+        @step
+        def train_model(self):
+            # GPU-intensive training code
+      </code_example>
+      <source_code_reference file="kubernetes_decorator.py" line="197"/>
+    </decorator_integration>
+    
+    <environment_mixing>
+      <description>
+        Metaflow allows mixing different compute environments in a single flow, providing flexibility to use the right resources for each step.
+      </description>
+      <code_example>
+        from metaflow import FlowSpec, step, resources, kubernetes, batch
+
+        class HybridCloudFlow(FlowSpec):
+            @step
+            def start(self):
+                # Local execution
+                self.next(self.prepare_data)
+
+            @kubernetes(memory=16000)
+            @step
+            def prepare_data(self):
+                # Kubernetes execution
+                self.next(self.train)
+
+            @batch(gpu=2, queue='gpu-queue')
+            @step
+            def train(self):
+                # AWS Batch execution with GPUs
+                self.next(self.end)
+
+            @step
+            def end(self):
+                # Local execution
+                pass
+      </code_example>
+    </environment_mixing>
+    
+    <command_line_execution>
+      <description>
+        Run any Metaflow flow in the cloud simply by adding an option on the command line.
+      </description>
+      <example platform="kubernetes">
+        python hello.py run --with kubernetes
+      </example>
+      <example platform="aws_batch">
+        python hello.py run --with batch
+      </example>
+      <parameters>
+        <parameter name="cpu">
+          <description>Number of CPUs to request</description>
+          <example>--with kubernetes:cpu=4</example>
+        </parameter>
+        <parameter name="memory">
+          <description>Memory in MB to request</description>
+          <example>--with kubernetes:memory=10000</example>
+        </parameter>
+        <parameter name="gpu">
+          <description>Number of GPUs to request</description>
+          <example>--with kubernetes:gpu=2</example>
+        </parameter>
+        <parameter name="namespace">
+          <description>Kubernetes namespace to use</description>
+          <example>--with kubernetes:namespace=foo</example>
+        </parameter>
+        <parameter name="image">
+          <description>Docker image to use</description>
+          <example>--with kubernetes:image=ubuntu:latest</example>
+        </parameter>
+      </parameters>
+    </command_line_execution>
+  </integration_patterns>
+  
+  <examples>
+    <example name="basic_gpu_usage">
+      <title>Basic GPU Usage</title>
+      <description>A flow that uses a GPU for model training</description>
+      <code>
+        from metaflow import FlowSpec, step, resources
+
+        class GPUFlow(FlowSpec):
+            @resources(memory=32000, cpu=4, gpu=1)
+            @step
+            def start(self):
+                from my_script import my_gpu_routine
+                my_gpu_routine()
+                self.next(self.end)
+
+            @step
+            def end(self):
+                pass
+
+        if __name__ == '__main__':
+            GPUFlow()
+      </code>
+      <execution_command>python GPUFlow.py run --with kubernetes</execution_command>
+    </example>
+    
+    <example name="distributed_training">
+      <title>Distributed Training with PyTorch</title>
+      <description>A flow that uses multiple GPU nodes for distributed training</description>
+      <code>
+        from metaflow import FlowSpec, step, resources, batch
+
+        class DistributedTrainingFlow(FlowSpec):
+            @step
+            def start(self):
+                self.next(self.train, num_parallel=4)
+
+            @batch(image="pytorch/pytorch:latest", gpu=2)
+            @torchrun
+            @step
+            def train(self):
+                current.torch.run(my_distributed_training_script)
+                self.next(self.join)
+
+            @step
+            def join(self, inputs):
+                self.models = [input.model for input in inputs]
+                self.next(self.end)
+
+            @step
+            def end(self):
+                pass
+
+        if __name__ == '__main__':
+            DistributedTrainingFlow()
+      </code>
+      <execution_command>python DistributedTrainingFlow.py run</execution_command>
+    </example>
+    
+    <example name="mpi_cluster">
+      <title>MPI Cluster for Distributed Computing</title>
+      <description>Setting up an MPI cluster for distributed computing</description>
+      <code>
+        from metaflow import FlowSpec, step, batch, mpi, current
+
+        N_CPU = 2
+        N_NODES = 4
+
+        class MPI4PyFlow(FlowSpec):
+            @step
+            def start(self):
+                self.next(self.multinode, num_parallel=N_NODES)
+
+            @batch(image="eddieob/mpi-base:1", cpu=N_CPU)
+            @mpi
+            @step
+            def multinode(self):
+                current.mpi.exec(
+                    args=["-n", str(N_CPU * N_NODES), "--allow-run-as-root"],
+                    program="python mpi_hello.py",
+                )
+                self.next(self.join)
+
+            @step
+            def join(self, inputs):
+                self.next(self.end)
+
+            @step
+            def end(self):
+                pass
+
+        if __name__ == "__main__":
+            MPI4PyFlow()
+      </code>
+      <execution_command>python mpiflow.py run</execution_command>
+    </example>
+    
+    <example name="hybrid_cloud">
+      <title>Hybrid Cloud Example</title>
+      <description>A flow that mixes local, on-prem, and cloud compute</description>
+      <code>
+        import random
+        from metaflow import FlowSpec, step, resources, kubernetes, batch, card
+
+        class HybridCloudFlow(FlowSpec):
+            @step
+            def start(self):
+                self.countries = ['US', 'BR', 'IT']
+                self.shards = {country: open(f'{country}.data').read()
+                              for country in self.countries}
+                self.next(self.prepare_data, foreach='countries')
+
+            @kubernetes(memory=16000)
+            @step
+            def prepare_data(self):
+                print('processing a shard of data', self.shards[self.input])
+                self.next(self.train)
+
+            @batch(gpu=2, queue='gpu-queue')
+            @step
+            def train(self):
+                print('training model...')
+                self.score = random.randint(0, 10)
+                self.country = self.input
+                self.next(self.join)
+
+            @batch(memory=16000, queue='cpu-queue')    
+            @step
+            def join(self, inputs):
+                self.best = max(inputs, key=lambda x: x.score).country
+                self.next(self.end)
+
+            @step
+            def end(self):
+                print(self.best, 'produced best results')
+
+        if __name__ == '__main__':
+            HybridCloudFlow()
+      </code>
+      <execution_command>python HybridCloudFlow.py run</execution_command>
+    </example>
+    
+    <example name="multi_gpu_training">
+      <title>Training with Multiple GPUs on a Single Instance</title>
+      <description>A flow that uses multiple GPUs on a single instance for training</description>
+      <code>
+        from metaflow import FlowSpec, step, resources, kubernetes
+
+        class MultiGPUFlow(FlowSpec):
+            @resources(memory=64000, cpu=16, gpu=4)
+            @kubernetes(gpu_vendor="nvidia")
+            @step
+            def start(self):
+                import torch
+                # Check that we have access to multiple GPUs
+                print(f"Available GPUs: {torch.cuda.device_count()}")
+                
+                # Use multiple GPUs for training
+                device_ids = list(range(torch.cuda.device_count()))
+                model = torch.nn.DataParallel(my_model, device_ids=device_ids)
+                
+                # Train the model
+                train_model(model)
+                
+                self.next(self.end)
+
+            @step
+            def end(self):
+                pass
+
+        if __name__ == '__main__':
+            MultiGPUFlow()
+      </code>
+      <execution_command>python MultiGPUFlow.py run</execution_command>
+    </example>
+  </examples>
+  
+  <troubleshooting>
+    <issue>
+      <problem>Kubernetes tasks stuck in PENDING forever</problem>
+      <possible_causes>
+        <cause>Insufficient resources requested for the Kubernetes pod</cause>
+        <cause>No nodes in the cluster can satisfy the resource requirements</cause>
+        <cause>Missing or invalid tolerations for specialized hardware</cause>
+      </possible_causes>
+      <solutions>
+        <solution>Increase the requested memory to pull container images</solution>
+        <solution>Check if the Kubernetes cluster has nodes with the requested GPU type</solution>
+        <solution>Add appropriate tolerations for GPU nodes</solution>
+      </solutions>
+    </issue>
+    <issue>
+      <problem>GPU not visible to the application</problem>
+      <possible_causes>
+        <cause>Missing GPU drivers in the container image</cause>
+        <cause>Kubernetes Device Plugin not properly configured</cause>
+      </possible_causes>
+      <solutions>
+        <solution>Use a container image with pre-installed GPU drivers</solution>
+        <solution>Verify that the Kubernetes Device Plugin is correctly installed</solution>
+        <solution>Check that the gpu_vendor parameter matches the actual hardware</solution>
+      </solutions>
+    </issue>
+    <issue>
+      <problem>Distributed training fails with communication errors</problem>
+      <possible_causes>
+        <cause>Worker nodes unable to resolve control node hostname</cause>
+        <cause>Network policies blocking inter-node communication</cause>
+      </possible_causes>
+      <solutions>
+        <solution>Increase the hostname_resolution_timeout parameter</solution>
+        <solution>Check Kubernetes network policies to ensure nodes can communicate</solution>
+        <solution>Verify that all required ports are open between nodes</solution>
+      </solutions>
+    </issue>
+  </troubleshooting>
+  
+  <version_notes>
+    <note version="current">
+      <description>This reference guide is based on the latest available version of Metaflow as of the document creation date.</description>
+      <caution>Implementation details may change in future versions. Always consult the official documentation for the most up-to-date information.</caution>
+    </note>
+    <compatibility>
+      <cloud_platform name="aws">
+        <description>Full support for AWS Batch, AWS EKS, and AWS-specific accelerators (Trainium, Inferentia)</description>
+      </cloud_platform>
+      <cloud_platform name="gcp">
+        <description>Support for GKE with GPU Device Plugins</description>
+      </cloud_platform>
+      <cloud_platform name="azure">
+        <description>Support for AKS with GPU Device Plugins</description>
+      </cloud_platform>
+      <on_premise>
+        <description>Support for on-premise Kubernetes clusters with appropriate GPU Device Plugins</description>
+      </on_premise>
+    </compatibility>
+  </version_notes>
+</metaflow_reference>

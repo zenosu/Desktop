@@ -1,0 +1,95 @@
+NFCI index - Chicago Fed
+
+URL: https://fred.stlouisfed.org/series/NFCI
+Update Frequency: Weekly - updated every Wednesday at 8:30 a.m. ET, covering data through the previous Friday. If a federal holiday falls on Wednesday or earlier in the week, it's updated on Thursday instead. Chicagofed
+
+
+Initial Claims for Unemployment - BLS
+
+URL: https://fred.stlouisfed.org/series/ICSA
+Update Frequency: Weekly - typically updated every Thursday with data from the week ending the previous Saturday. The Employment and Training Administration (ETA) publishes this data from the Unemployment Insurance Weekly Claims Report.
+
+
+Advanced Retail Sales - Commerce Dept / Census
+
+URL: https://fred.stlouisfed.org/series/RSAFS
+Update Frequency: Monthly - the Advance Monthly Retail Sales reports are released about 9 working days after the close of the reference month. These provide advance estimates for the reporting month and preliminary sales data for the previous month. Census
+
+
+Inflation CPI
+
+URL: https://fred.stlouisfed.org/series/CPIAUCSL
+Update Frequency: Monthly - released around the middle of each month with data for the previous month. For example, the CPI release for March 2025 is scheduled for April 10, 2025, at 8:30 a.m. ET. Bls
+
+
+2yr Treasuries
+
+URL: https://fred.stlouisfed.org/series/DGS2
+Update Frequency: Daily - updated every business day when markets are open, reflecting the market yield on 2-year Treasury securities.
+
+
+10yr Treasuries
+
+URL: https://fred.stlouisfed.org/series/DGS10
+Update Frequency: Daily - updated every business day when markets are open, reflecting the market yield on 10-year Treasury securities.
+
+
+Yield curve - 10yr-2yr spread
+
+URL: https://fred.stlouisfed.org/series/T10Y2Y
+Update Frequency: Daily - calculated as the difference between the 10-year and 2-year Treasury constant maturity rates, updated every business day.
+
+
+Housing Prices
+
+URL: https://fred.stlouisfed.org/series/CSUSHPINSA
+Update Frequency: Monthly - the S&P/Case-Shiller U.S. National Home Price Index is released with a lag, typically on the last Tuesday of each month with data from two months prior.
+
+
+MEASUREMENT:CSUSHPINSA
+title: S&P/Case-Shiller U.S. National Home Price Index
+description: Measures changes in the value of the residential real estate market in the United States
+frequency: monthly
+units: Index Jan 2000=100
+
+MEASUREMENT:DGS10
+title: 10-Year Treasury Constant Maturity Rate
+description: Interest rate on U.S. Treasury securities at 10-year constant maturity
+frequency: daily
+units: %
+
+MEASUREMENT:DGS2
+title: 2-Year Treasury Constant Maturity Rate
+description: Interest rate on U.S. Treasury securities at 2-year constant maturity
+frequency: daily
+units: %
+
+MEASUREMENT:T10Y2Y
+title: 10-Year Treasury Constant Maturity Minus 2-Year Treasury Constant Maturity
+description: Difference between the 10-year and 2-year Treasury yields, a common recession predictor
+frequency: daily
+units: %
+
+MEASUREMENT:CPIAUCSL
+title: Consumer Price Index for All Urban Consumers: All Items
+description: Measures the average change over time in the prices paid by urban consumers for a market basket of consumer goods and services
+frequency: monthly
+units: Index 1982-1984=100
+
+MEASUREMENT:RSAFS
+title: Advance Retail Sales: Retail and Food Services, Total
+description: Total sales of retail and food services that are adjusted for seasonal variations
+frequency: monthly
+units: Millions of Dollars
+
+MEASUREMENT:ICSA
+title: Initial Claims for Unemployment Insurance
+description: Number of people filing new claims for unemployment insurance benefits
+frequency: weekly
+units: Number of Claims
+
+MEASUREMENT:NFCI
+title: Chicago Fed National Financial Conditions Index
+description: Provides a comprehensive update on U.S. financial conditions in money markets, debt and equity markets, and the traditional and shadow banking systems
+frequency: weekly
+units: Index

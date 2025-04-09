@@ -1,0 +1,229 @@
+<prompt>
+  <title>Create a Comprehensive XML-Structured Reference on Metaflow GPU Computing with Kubernetes Integration</title>
+  
+  <overview>
+    <description>Metaflow provides multiple approaches for GPU computing, particularly when integrated with Kubernetes. By analyzing both official documentation and source code, we can create a comprehensive reference that combines these sources into a single, structured document. This reference will focus on GPU-related APIs, the resources decorator, and Kubernetes integration, providing a complete technical understanding of how these components interact.</description>
+    <objective>Produce a detailed, XML-structured reference document that combines insights from Metaflow documentation and source code, specifically focused on GPU computing capabilities, resources decorator implementation, and Kubernetes integration. The document should be optimized for machine consumption by LLMs, using consistent XML tags with meaningful attributes to enhance information retrieval and understanding.</objective>
+  </overview>
+  
+  <requirements>
+    <requirement id="1">
+      <title>Comprehensive GPU Functionality Coverage</title>
+      <details>Analyze and document all GPU-related functionality in Metaflow, including how GPUs are requested, allocated, and managed across different compute environments. Extract specific parameters, default values, and behaviors from both documentation and source code, ensuring complete coverage of GPU-related APIs.</details>
+    </requirement>
+    <requirement id="2">
+      <title>Resources Decorator Analysis</title>
+      <details>Document the implementation and behavior of the resources decorator, focusing on its GPU-related parameters. Include detailed information about how the decorator interacts with different compute backends, parameter inheritance, default values, and validation logic. Cross-reference the source code implementation with the documentation to identify any discrepancies or additional insights.</details>
+    </requirement>
+    <requirement id="3">
+      <title>Kubernetes Integration Documentation</title>
+      <details>Detail how Kubernetes integrates with Metaflow for GPU computing, including specific parameters, configuration options, and behaviors. Document the kubernetes decorator implementation, focusing on GPU-related parameters such as gpu, gpu_vendor, and how they affect pod scheduling and resource allocation on Kubernetes clusters.</details>
+    </requirement>
+    <requirement id="4">
+      <title>XML-Structured Information Format</title>
+      <details>Organize all information using a consistent XML structure with semantic tags and attributes that enhance machine readability. Use hierarchical relationships in the XML structure to represent relationships between components (e.g., decorator inheritance, parameter relationships). Include attributes for version information, deprecation status, default values, and parameter types.</details>
+    </requirement>
+    <requirement id="5">
+      <title>Source Code and Documentation Integration</title>
+      <details>For each component and parameter, include both the documented behavior from official guides and the actual implementation details from the source code. Highlight any differences or additional insights gained from the source code that aren't explicitly mentioned in the documentation.</details>
+    </requirement>
+  </requirements>
+  
+  <instructions>
+    <step number="1">
+      Thoroughly review all specified documentation files and source code files, focusing specifically on GPU-related functionality, the resources decorator, and Kubernetes integration. Extract key information, parameters, default values, validation logic, and behavioral details from each source.
+    </step>
+    <step number="2">
+      Create a comprehensive XML schema that can effectively represent all aspects of Metaflow's GPU computing capabilities. Define semantic tags and attributes that capture technical details such as parameter types, default values, validation rules, and relationships between components.
+      <code>
+      <!-- Example schema structure -->
+      <metaflow-component type="decorator" name="resources">
+        <description>...</description>
+        <parameters>
+          <parameter name="gpu" type="int" default="None" required="false">
+            <description>...</description>
+            <validation>...</validation>
+            <source_file>plugins/resources_decorator.py</source_file>
+            <line_numbers>...</line_numbers>
+          </parameter>
+        </parameters>
+        <examples>...</examples>
+        <related_components>
+          <component type="decorator" name="kubernetes" relationship="extends" />
+        </related_components>
+      </metaflow-component>
+      </code>
+    </step>
+    <step number="3">
+      Document the resources decorator implementation in detail, focusing on its GPU-related functionality. Include information about parameter validation, default values, and how it interacts with other decorators such as @kubernetes and @batch.
+      <code>
+      <decorator name="resources">
+        <source_impl>
+          <parameter name="gpu" default="None" type="int">
+            <description>Number of GPUs required for this step.</description>
+            <validation>
+              <rule>Must be None or a non-negative integer</rule>
+              <implementation>isinstance(self.attributes["gpu"], (int, unicode, basestring)) and float(self.attributes["gpu"]).is_integer()</implementation>
+            </validation>
+          </parameter>
+        </source_impl>
+        <documentation>
+          <description>Use the @resources decorator to specify resource requirements independently of the specific compute layer (@batch, @kubernetes).</description>
+          <parameter_docs>
+            <parameter name="gpu">Number of GPUs required for this step.</parameter>
+          </parameter_docs>
+          <example>@resources(memory=32000, cpu=4, gpu=1)</example>
+        </documentation>
+      </decorator>
+      </code>
+    </step>
+    <step number="4">
+      Document the Kubernetes integration for GPU computing, including the kubernetes decorator implementation, GPU-specific parameters, default values, and how GPU requests are translated to Kubernetes resource specifications.
+      <code>
+      <decorator name="kubernetes">
+        <gpu_parameters>
+          <parameter name="gpu" type="int" default="None">
+            <description>Number of GPUs required for this step.</description>
+            <kubernetes_mapping>
+              <resource_type>vendor.com/gpu</resource_type>
+              <mapping_logic>Determined by gpu_vendor parameter</mapping_logic>
+            </kubernetes_mapping>
+          </parameter>
+          <parameter name="gpu_vendor" type="string" default="KUBERNETES_GPU_VENDOR">
+            <description>The vendor of the GPUs to be used for this step.</description>
+            <validation>
+              <rule>Must be either "amd" or "nvidia" (case-insensitive)</rule>
+              <e>GPU vendor *{vendor}* for step *{step}* is not currently supported.</e>
+            </validation>
+            <kubernetes_mapping>
+              <resource_type condition="vendor=='nvidia'">nvidia.com/gpu</resource_type>
+              <resource_type condition="vendor=='amd'">amd.com/gpu</resource_type>
+            </kubernetes_mapping>
+          </parameter>
+        </gpu_parameters>
+      </decorator>
+      </code>
+    </step>
+    <step number="5">
+      Create a comprehensive reference section on distributed GPU computing in Metaflow, documenting how multiple GPUs can be used across multiple nodes for tasks such as distributed training.
+      <code>
+      <feature name="distributed_computing">
+        <description>Metaflow supports distributed computing over multiple GPU instances through the @parallel decorator and framework-specific extensions.</description>
+        <supported_frameworks>
+          <framework name="torchrun">
+            <description>Facilitates distributed PyTorch training on multiple GPU nodes.</description>
+            <installation>pip install metaflow-torchrun</installation>
+            <usage>@torchrun</usage>
+          </framework>
+          <framework name="deepspeed">
+            <description>Enables DeepSpeed-based distributed training on multiple GPU nodes.</description>
+            <installation>pip install metaflow-deepspeed</installation>
+            <usage>@deepspeed</usage>
+          </framework>
+        </supported_frameworks>
+      </feature>
+      </code>
+    </step>
+    <step number="6">
+      Organize all the information into a cohesive, structured XML document that maintains hierarchical relationships between components. Ensure that all information is densely packed but logically organized, with proper cross-references between related components.
+    </step>
+  </instructions>
+  
+  <considerations>
+    <point>
+      <title>XML Tag Semantics</title>
+      <details>Choose XML tags and attributes that have clear semantic meaning relevant to Metaflow's architecture. For example, use tags like &lt;decorator&gt;, &lt;parameter&gt;, &lt;validation&gt;, &lt;default&gt;, &lt;behavior&gt;, etc., that directly reflect Metaflow's architectural components and concepts. This semantic structure will make the document more meaningful for LLMs.</details>
+    </point>
+    <point>
+      <title>Version-Specific Implementation Details</title>
+      <details>When documenting implementation details from source code, include version information to ensure accuracy as the codebase evolves. Use attributes like version="current" or version="as_of_oct_2024" to provide context for the implementation details.</details>
+    </point>
+    <point>
+      <title>Parameter Inheritance and Override Behavior</title>
+      <details>Pay special attention to documenting how parameters are inherited, overridden, or combined between decorators (e.g., between @resources and @kubernetes). This complex behavior should be thoroughly documented with examples to ensure clarity.</details>
+    </point>
+    <point>
+      <title>Implementable Code Examples</title>
+      <details>Include complete, functional code examples that demonstrate the practical use of GPU resources in different scenarios. These examples should be structured in a way that they can be directly implemented by users.</details>
+    </point>
+  </considerations>
+  
+  <examples>
+    <example>
+      Example of how to document a parameter with its implementation details:
+      <code>
+      <parameter name="gpu" component="resources_decorator">
+        <api_definition>
+          <signature>gpu : int, optional, default None</signature>
+          <description>Number of GPUs required for this step.</description>
+          <default_value>None</default_value>
+          <type>int or None</type>
+        </api_definition>
+        <implementation file="plugins/resources_decorator.py" line="35">
+          <defaults>{"gpu": None}</defaults>
+          <validation>
+            <condition>isinstance(value, (int, unicode, basestring)) and float(value).is_integer()</condition>
+            <error_message>Invalid GPU value *{0}* for step *{step}*; it should be an integer</error_message>
+          </validation>
+        </implementation>
+        <kubernetes_integration>
+          <resource_mapping>Translates to gpu_vendor.com/gpu in pod spec</resource_mapping>
+          <precendence>Takes max value between @resources and @kubernetes decorators</precendence>
+        </kubernetes_integration>
+        <usage_example>
+          @resources(gpu=2)
+          @step
+          def train_model(self):
+              import torch
+              # GPU code here
+      </usage_example>
+      </parameter>
+      </code>
+    </example>
+    <example>
+      Example of how to document decorator interaction:
+      <code>
+      <decorator_interaction>
+        <decorators>
+          <decorator name="resources" />
+          <decorator name="kubernetes" />
+        </decorators>
+        <behavior>
+          <description>When both @resources and @kubernetes decorators are present, Metaflow uses the maximum value for each resource type.</description>
+          <implementation_details>
+            <code_reference file="kubernetes_decorator.py" lines="245-256">
+              if isinstance(deco, ResourcesDecorator):
+                  for k, v in deco.attributes.items():
+                      if k == "gpu" and v != None:
+                          self.attributes["gpu"] = v
+                      if k in self.attributes:
+                          if self.defaults[k] is None:
+                              continue
+                          my_val = self.attributes.get(k)
+                          if not (my_val is None and v is None):
+                              self.attributes[k] = str(max(float(my_val or 0), float(v or 0)))
+            </code_reference>
+          </implementation_details>
+          <example>
+            @resources(gpu=2)
+            @kubernetes(gpu=4)
+            @step
+            def train_model(self):
+                # Will receive 4 GPUs (maximum of the two values)
+          </example>
+        </behavior>
+      </decorator_interaction>
+      </code>
+    </example>
+  </examples>
+  
+  <rules>
+    <rule>NEVER include comments, documentation (such as inline comments or documentation blocks), or tests in the generated code unless explicitly asked.</rule>
+    <rule>NEVER respect backward compatibility; always design the solution optimally for forward evolution of the codebase.</rule>
+    <rule>ALWAYS provide code examples as high-level patterns rather than rigid implementations, allowing flexibility for optimal solutions.</rule>
+    <rule>ALWAYS follow the xml output format this is specified, it is unacceptable to return a response that is not in this format.</rule>
+    <rule>ALWAYS include both documented behavior and actual implementation details, especially when they differ.</rule>
+    <rule>ALWAYS use semantic XML tags and attributes that directly reflect Metaflow's architecture and concepts.</rule>
+    <rule>ENSURE all information is technically accurate and verified against both documentation and source code.</rule>
+  </rules>
+</prompt>

@@ -1,0 +1,12 @@
+{
+  "date": "20250407",
+  "measurements_count": 8,
+  "data_dir": "/Users/zeno.su/Desktop/dailyeconomy",
+  "context_file": "/Users/zeno.su/Desktop/dailyeconomy/fred_context.txt",
+  "output_dir": "/Users/zeno.su/Desktop/dailyeconomy/reports",
+  "recession_risk": {
+    "score": 0,
+    "category": "Low"
+  },
+  "timestamp": "2025-04-07T17:04:00.882575"
+}

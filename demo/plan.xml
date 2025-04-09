@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<YouTubeAnalyticsApp>
+  <ProjectDescription>Create a simple web application that visualizes YouTube channel analytics for Indy Dev Dan (channel ID: UC_x36zCEGilGpB1m-V4gmjg) with the following specifications:</ProjectDescription>
+  
+  <CoreFeatures>
+    <Feature>Display a line chart of video views over time for Indy Dev Dan's YouTube channel</Feature>
+    <Feature>Show detailed video information on chart interaction (title, publish date, view count)</Feature>
+    <Feature>Basic responsive design</Feature>
+  </CoreFeatures>
+  
+  <TechnicalRequirements>
+    <Backend>
+      <Requirement>Create a Node.js/Express server that securely proxies YouTube API requests</Requirement>
+      <Requirement>Implement endpoints for channel info, playlist retrieval, and video details</Requirement>
+      <Requirement>Handle pagination for all videos from the channel</Requirement>
+    </Backend>
+    
+    <Frontend>
+      <Requirement>Create a single HTML file with inline CSS and JavaScript</Requirement>
+      <Requirement>Use Chart.js (loaded via CDN) for data visualization</Requirement>
+      <Requirement>Implement custom tooltips for video details</Requirement>
+      <Requirement>Keep the UI clean and minimal with a dark theme</Requirement>
+    </Frontend>
+    
+    <SecurityConfiguration>
+      <Requirement>Keep YouTube API key secure on the server side</Requirement>
+      <Requirement>Use environment variables for configuration</Requirement>
+      <Requirement>Basic error handling for API failures</Requirement>
+    </SecurityConfiguration>
+  </TechnicalRequirements>
+  
+  <ImplementationFocus>
+    <Focus>Hardcode the channel ID (UC_x36zCEGilGpB1m-V4gmjg) for Indy Dev Dan</Focus>
+    <Focus>Focus on displaying video views chronologically with accurate data</Focus>
+    <Focus>Create a visually appealing chart that clearly shows the channel's growth</Focus>
+    <Focus>Ensure the application loads and displays data quickly</Focus>
+  </ImplementationFocus>
+</YouTubeAnalyticsApp> 

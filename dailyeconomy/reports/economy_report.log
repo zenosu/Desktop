@@ -1,0 +1,691 @@
+2025-04-07 14:18:03,848 - __main__ - INFO - Starting daily economy report generation for date: 20240501
+2025-04-07 14:18:03,848 - __main__ - INFO - Loading FRED data from /Users/zeno.su/Desktop/dailyeconomy
+2025-04-07 14:18:03,848 - modules.data_loader - INFO - Loading FRED data from /Users/zeno.su/Desktop/dailyeconomy/FRED_20240501
+2025-04-07 14:18:03,852 - __main__ - INFO - Loading context information from /Users/zeno.su/Desktop/dailyeconomy/fred_context.txt
+2025-04-07 14:18:03,852 - modules.data_loader - INFO - Loading context data from /Users/zeno.su/Desktop/dailyeconomy/fred_context.txt
+2025-04-07 14:18:03,852 - __main__ - INFO - Processing 6 measurements
+2025-04-07 14:18:03,852 - __main__ - INFO - Processing measurement: GDP
+2025-04-07 14:18:04,354 - modules.visualizer - INFO - Saved visualization for GDP to /Users/zeno.su/Desktop/dailyeconomy/reports/visualizations/GDP_trend.png
+2025-04-07 14:19:32,101 - modules.llm_insights - ERROR - Request error: Extra data: line 2 column 1 (char 115)
+2025-04-07 14:19:32,102 - __main__ - INFO - Processing measurement: UNRATE
+2025-04-07 14:19:32,212 - modules.visualizer - INFO - Saved visualization for UNRATE to /Users/zeno.su/Desktop/dailyeconomy/reports/visualizations/UNRATE_trend.png
+2025-04-07 14:21:41,033 - modules.llm_insights - ERROR - Request error: Extra data: line 2 column 1 (char 115)
+2025-04-07 14:21:41,034 - __main__ - INFO - Processing measurement: PAYEMS
+2025-04-07 14:21:41,166 - modules.visualizer - INFO - Saved visualization for PAYEMS to /Users/zeno.su/Desktop/dailyeconomy/reports/visualizations/PAYEMS_trend.png
+2025-04-07 14:23:10,717 - modules.llm_insights - ERROR - Request error: Extra data: line 2 column 1 (char 115)
+2025-04-07 14:23:10,717 - __main__ - INFO - Processing measurement: T10Y2Y
+2025-04-07 14:23:10,825 - modules.visualizer - INFO - Saved visualization for T10Y2Y to /Users/zeno.su/Desktop/dailyeconomy/reports/visualizations/T10Y2Y_trend.png
+2025-04-07 14:24:51,274 - modules.llm_insights - ERROR - Request error: Extra data: line 2 column 1 (char 115)
+2025-04-07 14:24:51,274 - __main__ - INFO - Processing measurement: T10Y3M
+2025-04-07 14:24:51,379 - modules.visualizer - INFO - Saved visualization for T10Y3M to /Users/zeno.su/Desktop/dailyeconomy/reports/visualizations/T10Y3M_trend.png
+2025-04-07 14:27:28,316 - modules.llm_insights - ERROR - Request error: Extra data: line 2 column 1 (char 115)
+2025-04-07 14:27:28,317 - __main__ - INFO - Processing measurement: CPI
+2025-04-07 14:27:28,450 - modules.visualizer - INFO - Saved visualization for CPI to /Users/zeno.su/Desktop/dailyeconomy/reports/visualizations/CPI_trend.png
+2025-04-07 14:29:53,984 - modules.llm_insights - ERROR - Request error: Extra data: line 2 column 1 (char 115)
+2025-04-07 14:29:53,984 - __main__ - INFO - Calculating recession risk indicators
+2025-04-07 14:29:53,984 - __main__ - INFO - Generating overall economic summary
+2025-04-07 14:32:58,239 - modules.llm_insights - ERROR - Request error: Extra data: line 2 column 1 (char 115)
+2025-04-07 14:32:58,239 - __main__ - INFO - Generating final report
+2025-04-07 14:32:58,247 - modules.report_generator - INFO - Generated report saved to /Users/zeno.su/Desktop/dailyeconomy/reports/Economy_Report_20240501.html
+2025-04-07 14:32:58,247 - __main__ - INFO - Report successfully generated: /Users/zeno.su/Desktop/dailyeconomy/reports/Economy_Report_20240501.html
+2025-04-07 14:36:12,978 - __main__ - INFO - Starting daily economy report generation for date: 20240501
+2025-04-07 14:36:12,978 - __main__ - INFO - Loading FRED data from /Users/zeno.su/Desktop/dailyeconomy
+2025-04-07 14:36:12,978 - modules.data_loader - INFO - Loading FRED data from /Users/zeno.su/Desktop/dailyeconomy/FRED_20240501
+2025-04-07 14:36:12,980 - __main__ - INFO - Loading context information from /Users/zeno.su/Desktop/dailyeconomy/fred_context.txt
+2025-04-07 14:36:12,980 - modules.data_loader - INFO - Loading context data from /Users/zeno.su/Desktop/dailyeconomy/fred_context.txt
+2025-04-07 14:36:12,981 - __main__ - INFO - Processing 6 measurements
+2025-04-07 14:36:12,981 - __main__ - INFO - Processing measurement: GDP
+2025-04-07 14:36:13,143 - modules.visualizer - INFO - Saved visualization for GDP to /Users/zeno.su/Desktop/dailyeconomy/reports/visualizations/GDP_trend.png
+2025-04-07 14:37:13,146 - modules.llm_insights - ERROR - Request error: HTTPConnectionPool(host='localhost', port=11434): Read timed out. (read timeout=60)
+2025-04-07 14:37:13,146 - __main__ - INFO - Processing measurement: UNRATE
+2025-04-07 14:37:13,264 - modules.visualizer - INFO - Saved visualization for UNRATE to /Users/zeno.su/Desktop/dailyeconomy/reports/visualizations/UNRATE_trend.png
+2025-04-07 14:38:13,265 - modules.llm_insights - ERROR - Request error: HTTPConnectionPool(host='localhost', port=11434): Read timed out. (read timeout=60)
+2025-04-07 14:38:13,265 - __main__ - INFO - Processing measurement: PAYEMS
+2025-04-07 14:38:13,387 - modules.visualizer - INFO - Saved visualization for PAYEMS to /Users/zeno.su/Desktop/dailyeconomy/reports/visualizations/PAYEMS_trend.png
+2025-04-07 14:39:13,388 - modules.llm_insights - ERROR - Request error: HTTPConnectionPool(host='localhost', port=11434): Read timed out. (read timeout=60)
+2025-04-07 14:39:13,389 - __main__ - INFO - Processing measurement: T10Y2Y
+2025-04-07 14:39:13,494 - modules.visualizer - INFO - Saved visualization for T10Y2Y to /Users/zeno.su/Desktop/dailyeconomy/reports/visualizations/T10Y2Y_trend.png
+2025-04-07 14:47:57,618 - __main__ - INFO - Starting daily economy report generation for date: 20250407
+2025-04-07 14:47:57,618 - __main__ - INFO - Using new CSV format from directory: /Users/zeno.su/Desktop/dailyeconomy/FRED_20250407
+2025-04-07 14:47:57,618 - __main__ - INFO - Loading FRED data from /Users/zeno.su/Desktop/dailyeconomy
+2025-04-07 14:47:57,618 - modules.data_loader - INFO - Loading FRED data from directory /Users/zeno.su/Desktop/dailyeconomy/FRED_20250407
+2025-04-07 14:47:57,618 - modules.data_loader - INFO - Loading measurement DGS2 from /Users/zeno.su/Desktop/dailyeconomy/FRED_20250407/DGS2_20250407.csv
+2025-04-07 14:47:57,623 - modules.data_loader - INFO - Loading measurement NFCI from /Users/zeno.su/Desktop/dailyeconomy/FRED_20250407/NFCI_20250407.csv
+2025-04-07 14:47:57,624 - modules.data_loader - INFO - Loading measurement ICSA from /Users/zeno.su/Desktop/dailyeconomy/FRED_20250407/ICSA_20250407.csv
+2025-04-07 14:47:57,625 - modules.data_loader - INFO - Loading measurement RSAFS from /Users/zeno.su/Desktop/dailyeconomy/FRED_20250407/RSAFS_20250407.csv
+2025-04-07 14:47:57,626 - modules.data_loader - INFO - Loading measurement CPIAUCSL from /Users/zeno.su/Desktop/dailyeconomy/FRED_20250407/CPIAUCSL_20250407.csv
+2025-04-07 14:47:57,626 - modules.data_loader - INFO - Loading measurement CSUSHPINSA from /Users/zeno.su/Desktop/dailyeconomy/FRED_20250407/CSUSHPINSA_20250407.csv
+2025-04-07 14:47:57,627 - modules.data_loader - INFO - Loading measurement T10Y2Y from /Users/zeno.su/Desktop/dailyeconomy/FRED_20250407/T10Y2Y_20250407.csv
+2025-04-07 14:47:57,631 - modules.data_loader - INFO - Loading measurement DGS10 from /Users/zeno.su/Desktop/dailyeconomy/FRED_20250407/DGS10_20250407.csv
+2025-04-07 14:47:57,635 - __main__ - INFO - Loading context information from /Users/zeno.su/Desktop/dailyeconomy/fred_context.txt
+2025-04-07 14:47:57,635 - modules.data_loader - INFO - Loading context data from /Users/zeno.su/Desktop/dailyeconomy/fred_context.txt
+2025-04-07 14:47:57,635 - __main__ - INFO - Processing 8 measurements
+2025-04-07 14:47:57,635 - __main__ - INFO - Processing measurement: DGS2
+2025-04-07 14:47:58,082 - modules.visualizer - INFO - Saved visualization for DGS2 to /Users/zeno.su/Desktop/dailyeconomy/reports/visualizations/DGS2_trend.png
+2025-04-07 14:48:58,085 - modules.llm_insights - ERROR - Request error: HTTPConnectionPool(host='localhost', port=11434): Read timed out. (read timeout=60)
+2025-04-07 14:48:58,085 - __main__ - INFO - Processing measurement: NFCI
+2025-04-07 14:48:58,583 - modules.visualizer - INFO - Saved visualization for NFCI to /Users/zeno.su/Desktop/dailyeconomy/reports/visualizations/NFCI_trend.png
+2025-04-07 14:49:58,585 - modules.llm_insights - ERROR - Request error: HTTPConnectionPool(host='localhost', port=11434): Read timed out. (read timeout=60)
+2025-04-07 14:49:58,586 - __main__ - INFO - Processing measurement: ICSA
+2025-04-07 14:49:59,049 - modules.visualizer - INFO - Saved visualization for ICSA to /Users/zeno.su/Desktop/dailyeconomy/reports/visualizations/ICSA_trend.png
+2025-04-07 14:50:59,052 - modules.llm_insights - ERROR - Request error: HTTPConnectionPool(host='localhost', port=11434): Read timed out. (read timeout=60)
+2025-04-07 14:50:59,052 - __main__ - INFO - Processing measurement: RSAFS
+2025-04-07 14:50:59,358 - modules.visualizer - INFO - Saved visualization for RSAFS to /Users/zeno.su/Desktop/dailyeconomy/reports/visualizations/RSAFS_trend.png
+2025-04-07 14:51:59,360 - modules.llm_insights - ERROR - Request error: HTTPConnectionPool(host='localhost', port=11434): Read timed out. (read timeout=60)
+2025-04-07 14:51:59,361 - __main__ - INFO - Processing measurement: CPIAUCSL
+2025-04-07 14:51:59,950 - modules.visualizer - INFO - Saved visualization for CPIAUCSL to /Users/zeno.su/Desktop/dailyeconomy/reports/visualizations/CPIAUCSL_trend.png
+2025-04-07 14:52:59,952 - modules.llm_insights - ERROR - Request error: HTTPConnectionPool(host='localhost', port=11434): Read timed out. (read timeout=60)
+2025-04-07 14:52:59,952 - __main__ - INFO - Processing measurement: CSUSHPINSA
+2025-04-07 14:53:00,274 - modules.visualizer - INFO - Saved visualization for CSUSHPINSA to /Users/zeno.su/Desktop/dailyeconomy/reports/visualizations/CSUSHPINSA_trend.png
+2025-04-07 14:54:00,276 - modules.llm_insights - ERROR - Request error: HTTPConnectionPool(host='localhost', port=11434): Read timed out. (read timeout=60)
+2025-04-07 14:54:00,276 - __main__ - INFO - Processing measurement: T10Y2Y
+2025-04-07 14:54:00,686 - modules.visualizer - INFO - Saved visualization for T10Y2Y to /Users/zeno.su/Desktop/dailyeconomy/reports/visualizations/T10Y2Y_trend.png
+2025-04-07 14:55:00,689 - modules.llm_insights - ERROR - Request error: HTTPConnectionPool(host='localhost', port=11434): Read timed out. (read timeout=60)
+2025-04-07 14:55:00,689 - __main__ - INFO - Processing measurement: DGS10
+2025-04-07 14:55:01,182 - modules.visualizer - INFO - Saved visualization for DGS10 to /Users/zeno.su/Desktop/dailyeconomy/reports/visualizations/DGS10_trend.png
+2025-04-07 14:56:01,184 - modules.llm_insights - ERROR - Request error: HTTPConnectionPool(host='localhost', port=11434): Read timed out. (read timeout=60)
+2025-04-07 14:56:01,184 - __main__ - INFO - Calculating recession risk indicators
+2025-04-07 14:56:01,185 - __main__ - INFO - Generating overall economic summary
+2025-04-07 14:57:01,187 - modules.llm_insights - ERROR - Request error: HTTPConnectionPool(host='localhost', port=11434): Read timed out. (read timeout=60)
+2025-04-07 14:57:01,187 - __main__ - INFO - Generating final report
+2025-04-07 14:57:01,195 - modules.report_generator - INFO - Generated report saved to /Users/zeno.su/Desktop/dailyeconomy/reports/Economy_Report_20250407.html
+2025-04-07 14:57:01,195 - __main__ - INFO - Report successfully generated: /Users/zeno.su/Desktop/dailyeconomy/reports/Economy_Report_20250407.html
+2025-04-07 15:05:45,136 - __main__ - INFO - Starting daily economy report generation for date: 20250407
+2025-04-07 15:05:45,136 - __main__ - INFO - Using new CSV format from directory: /Users/zeno.su/Desktop/dailyeconomy/FRED_20250407
+2025-04-07 15:05:45,136 - __main__ - INFO - Loading FRED data from /Users/zeno.su/Desktop/dailyeconomy
+2025-04-07 15:05:45,136 - modules.data_loader - INFO - Loading FRED data from directory /Users/zeno.su/Desktop/dailyeconomy/FRED_20250407
+2025-04-07 15:05:45,136 - modules.data_loader - INFO - Loading measurement DGS2 from /Users/zeno.su/Desktop/dailyeconomy/FRED_20250407/DGS2_20250407.csv
+2025-04-07 15:05:45,140 - modules.data_loader - INFO - Loading measurement NFCI from /Users/zeno.su/Desktop/dailyeconomy/FRED_20250407/NFCI_20250407.csv
+2025-04-07 15:05:45,142 - modules.data_loader - INFO - Loading measurement ICSA from /Users/zeno.su/Desktop/dailyeconomy/FRED_20250407/ICSA_20250407.csv
+2025-04-07 15:05:45,143 - modules.data_loader - INFO - Loading measurement RSAFS from /Users/zeno.su/Desktop/dailyeconomy/FRED_20250407/RSAFS_20250407.csv
+2025-04-07 15:05:45,144 - modules.data_loader - INFO - Loading measurement CPIAUCSL from /Users/zeno.su/Desktop/dailyeconomy/FRED_20250407/CPIAUCSL_20250407.csv
+2025-04-07 15:05:45,144 - modules.data_loader - INFO - Loading measurement CSUSHPINSA from /Users/zeno.su/Desktop/dailyeconomy/FRED_20250407/CSUSHPINSA_20250407.csv
+2025-04-07 15:05:45,145 - modules.data_loader - INFO - Loading measurement T10Y2Y from /Users/zeno.su/Desktop/dailyeconomy/FRED_20250407/T10Y2Y_20250407.csv
+2025-04-07 15:05:45,148 - modules.data_loader - INFO - Loading measurement DGS10 from /Users/zeno.su/Desktop/dailyeconomy/FRED_20250407/DGS10_20250407.csv
+2025-04-07 15:05:45,152 - __main__ - INFO - Loading context information from /Users/zeno.su/Desktop/dailyeconomy/fred_context.txt
+2025-04-07 15:05:45,152 - modules.data_loader - INFO - Loading context data from /Users/zeno.su/Desktop/dailyeconomy/fred_context.txt
+2025-04-07 15:05:45,152 - __main__ - INFO - Processing 8 measurements
+2025-04-07 15:05:45,152 - __main__ - INFO - Processing measurement: DGS2
+2025-04-07 15:05:45,606 - modules.visualizer - INFO - Saved visualization for DGS2 to /Users/zeno.su/Desktop/dailyeconomy/reports/visualizations/DGS2_trend.png
+2025-04-07 15:06:45,610 - modules.llm_insights - ERROR - Request error: HTTPConnectionPool(host='localhost', port=11434): Read timed out. (read timeout=60)
+2025-04-07 15:06:45,610 - __main__ - INFO - Processing measurement: NFCI
+2025-04-07 15:06:46,103 - modules.visualizer - INFO - Saved visualization for NFCI to /Users/zeno.su/Desktop/dailyeconomy/reports/visualizations/NFCI_trend.png
+2025-04-07 15:07:46,104 - modules.llm_insights - ERROR - Request error: HTTPConnectionPool(host='localhost', port=11434): Read timed out. (read timeout=60)
+2025-04-07 15:07:46,105 - __main__ - INFO - Processing measurement: ICSA
+2025-04-07 15:07:46,551 - modules.visualizer - INFO - Saved visualization for ICSA to /Users/zeno.su/Desktop/dailyeconomy/reports/visualizations/ICSA_trend.png
+2025-04-07 15:08:46,556 - modules.llm_insights - ERROR - Request error: HTTPConnectionPool(host='localhost', port=11434): Read timed out. (read timeout=60)
+2025-04-07 15:08:46,557 - __main__ - INFO - Processing measurement: RSAFS
+2025-04-07 15:08:46,858 - modules.visualizer - INFO - Saved visualization for RSAFS to /Users/zeno.su/Desktop/dailyeconomy/reports/visualizations/RSAFS_trend.png
+2025-04-07 15:09:46,843 - modules.llm_insights - ERROR - Request error: HTTPConnectionPool(host='localhost', port=11434): Read timed out. (read timeout=60)
+2025-04-07 15:09:46,843 - __main__ - INFO - Processing measurement: CPIAUCSL
+2025-04-07 15:09:47,439 - modules.visualizer - INFO - Saved visualization for CPIAUCSL to /Users/zeno.su/Desktop/dailyeconomy/reports/visualizations/CPIAUCSL_trend.png
+2025-04-07 15:10:47,432 - modules.llm_insights - ERROR - Request error: HTTPConnectionPool(host='localhost', port=11434): Read timed out. (read timeout=60)
+2025-04-07 15:10:47,432 - __main__ - INFO - Processing measurement: CSUSHPINSA
+2025-04-07 15:10:47,764 - modules.visualizer - INFO - Saved visualization for CSUSHPINSA to /Users/zeno.su/Desktop/dailyeconomy/reports/visualizations/CSUSHPINSA_trend.png
+2025-04-07 15:11:47,765 - modules.llm_insights - ERROR - Request error: HTTPConnectionPool(host='localhost', port=11434): Read timed out. (read timeout=60)
+2025-04-07 15:11:47,766 - __main__ - INFO - Processing measurement: T10Y2Y
+2025-04-07 15:11:48,171 - modules.visualizer - INFO - Saved visualization for T10Y2Y to /Users/zeno.su/Desktop/dailyeconomy/reports/visualizations/T10Y2Y_trend.png
+2025-04-07 15:12:48,173 - modules.llm_insights - ERROR - Request error: HTTPConnectionPool(host='localhost', port=11434): Read timed out. (read timeout=60)
+2025-04-07 15:12:48,173 - __main__ - INFO - Processing measurement: DGS10
+2025-04-07 15:12:48,661 - modules.visualizer - INFO - Saved visualization for DGS10 to /Users/zeno.su/Desktop/dailyeconomy/reports/visualizations/DGS10_trend.png
+2025-04-07 15:13:48,662 - modules.llm_insights - ERROR - Request error: HTTPConnectionPool(host='localhost', port=11434): Read timed out. (read timeout=60)
+2025-04-07 15:13:48,663 - __main__ - INFO - Calculating recession risk indicators
+2025-04-07 15:13:48,663 - __main__ - INFO - Generating overall economic summary
+2025-04-07 15:14:49,594 - modules.llm_insights - ERROR - Request error: HTTPConnectionPool(host='localhost', port=11434): Read timed out. (read timeout=60)
+2025-04-07 15:14:49,594 - __main__ - INFO - Generating final report
+2025-04-07 15:14:49,602 - modules.report_generator - INFO - Generated report saved to /Users/zeno.su/Desktop/dailyeconomy/reports/Economy_Report_20250407.html
+2025-04-07 15:14:49,602 - __main__ - INFO - Report successfully generated: /Users/zeno.su/Desktop/dailyeconomy/reports/Economy_Report_20250407.html
+2025-04-07 15:22:22,893 - __main__ - INFO - Starting daily economy report generation for date: 20250407
+2025-04-07 15:22:22,893 - __main__ - INFO - Using new CSV format from directory: /Users/zeno.su/Desktop/dailyeconomy/FRED_20250407
+2025-04-07 15:22:22,893 - __main__ - INFO - Loading FRED data from /Users/zeno.su/Desktop/dailyeconomy
+2025-04-07 15:22:22,893 - modules.data_loader - INFO - Loading FRED data from directory /Users/zeno.su/Desktop/dailyeconomy/FRED_20250407
+2025-04-07 15:22:22,893 - modules.data_loader - INFO - Loading measurement DGS2 from /Users/zeno.su/Desktop/dailyeconomy/FRED_20250407/DGS2_20250407.csv
+2025-04-07 15:22:22,897 - modules.data_loader - INFO - Loading measurement NFCI from /Users/zeno.su/Desktop/dailyeconomy/FRED_20250407/NFCI_20250407.csv
+2025-04-07 15:22:22,899 - modules.data_loader - INFO - Loading measurement ICSA from /Users/zeno.su/Desktop/dailyeconomy/FRED_20250407/ICSA_20250407.csv
+2025-04-07 15:22:22,900 - modules.data_loader - INFO - Loading measurement RSAFS from /Users/zeno.su/Desktop/dailyeconomy/FRED_20250407/RSAFS_20250407.csv
+2025-04-07 15:22:22,901 - modules.data_loader - INFO - Loading measurement CPIAUCSL from /Users/zeno.su/Desktop/dailyeconomy/FRED_20250407/CPIAUCSL_20250407.csv
+2025-04-07 15:22:22,901 - modules.data_loader - INFO - Loading measurement CSUSHPINSA from /Users/zeno.su/Desktop/dailyeconomy/FRED_20250407/CSUSHPINSA_20250407.csv
+2025-04-07 15:22:22,902 - modules.data_loader - INFO - Loading measurement T10Y2Y from /Users/zeno.su/Desktop/dailyeconomy/FRED_20250407/T10Y2Y_20250407.csv
+2025-04-07 15:22:22,906 - modules.data_loader - INFO - Loading measurement DGS10 from /Users/zeno.su/Desktop/dailyeconomy/FRED_20250407/DGS10_20250407.csv
+2025-04-07 15:22:22,910 - __main__ - INFO - Loading context information from /Users/zeno.su/Desktop/dailyeconomy/fred_context.txt
+2025-04-07 15:22:22,910 - modules.data_loader - INFO - Loading context data from /Users/zeno.su/Desktop/dailyeconomy/fred_context.txt
+2025-04-07 15:22:22,910 - __main__ - INFO - Processing 8 measurements
+2025-04-07 15:22:22,910 - __main__ - INFO - Processing measurement: DGS2
+2025-04-07 15:22:23,344 - modules.visualizer - INFO - Saved visualization for DGS2 to /Users/zeno.su/Desktop/dailyeconomy/reports/visualizations/DGS2_trend.png
+2025-04-07 15:22:23,347 - modules.llm_insights - ERROR - Ollama service is not healthy: 404
+2025-04-07 15:22:23,347 - modules.llm_insights - WARNING - Using fallback insight for DGS2 due to LLM error: Error: Ollama service is not available (Status 404)
+2025-04-07 15:22:23,347 - __main__ - INFO - Processing measurement: NFCI
+2025-04-07 15:22:23,769 - modules.visualizer - INFO - Saved visualization for NFCI to /Users/zeno.su/Desktop/dailyeconomy/reports/visualizations/NFCI_trend.png
+2025-04-07 15:22:23,771 - modules.llm_insights - ERROR - Ollama service is not healthy: 404
+2025-04-07 15:22:23,771 - modules.llm_insights - WARNING - Using fallback insight for NFCI due to LLM error: Error: Ollama service is not available (Status 404)
+2025-04-07 15:22:23,771 - __main__ - INFO - Processing measurement: ICSA
+2025-04-07 15:22:24,166 - modules.visualizer - INFO - Saved visualization for ICSA to /Users/zeno.su/Desktop/dailyeconomy/reports/visualizations/ICSA_trend.png
+2025-04-07 15:22:24,168 - modules.llm_insights - ERROR - Ollama service is not healthy: 404
+2025-04-07 15:22:24,168 - modules.llm_insights - WARNING - Using fallback insight for ICSA due to LLM error: Error: Ollama service is not available (Status 404)
+2025-04-07 15:22:24,168 - __main__ - INFO - Processing measurement: RSAFS
+2025-04-07 15:22:24,424 - modules.visualizer - INFO - Saved visualization for RSAFS to /Users/zeno.su/Desktop/dailyeconomy/reports/visualizations/RSAFS_trend.png
+2025-04-07 15:22:24,426 - modules.llm_insights - ERROR - Ollama service is not healthy: 404
+2025-04-07 15:22:24,426 - modules.llm_insights - WARNING - Using fallback insight for RSAFS due to LLM error: Error: Ollama service is not available (Status 404)
+2025-04-07 15:22:24,426 - __main__ - INFO - Processing measurement: CPIAUCSL
+2025-04-07 15:22:24,960 - modules.visualizer - INFO - Saved visualization for CPIAUCSL to /Users/zeno.su/Desktop/dailyeconomy/reports/visualizations/CPIAUCSL_trend.png
+2025-04-07 15:22:24,962 - modules.llm_insights - ERROR - Ollama service is not healthy: 404
+2025-04-07 15:22:24,962 - modules.llm_insights - WARNING - Using fallback insight for CPIAUCSL due to LLM error: Error: Ollama service is not available (Status 404)
+2025-04-07 15:22:24,962 - __main__ - INFO - Processing measurement: CSUSHPINSA
+2025-04-07 15:22:25,249 - modules.visualizer - INFO - Saved visualization for CSUSHPINSA to /Users/zeno.su/Desktop/dailyeconomy/reports/visualizations/CSUSHPINSA_trend.png
+2025-04-07 15:22:25,251 - modules.llm_insights - ERROR - Ollama service is not healthy: 404
+2025-04-07 15:22:25,251 - modules.llm_insights - WARNING - Using fallback insight for CSUSHPINSA due to LLM error: Error: Ollama service is not available (Status 404)
+2025-04-07 15:22:25,251 - __main__ - INFO - Processing measurement: T10Y2Y
+2025-04-07 15:22:25,610 - modules.visualizer - INFO - Saved visualization for T10Y2Y to /Users/zeno.su/Desktop/dailyeconomy/reports/visualizations/T10Y2Y_trend.png
+2025-04-07 15:22:25,612 - modules.llm_insights - ERROR - Ollama service is not healthy: 404
+2025-04-07 15:22:25,612 - modules.llm_insights - WARNING - Using fallback insight for T10Y2Y due to LLM error: Error: Ollama service is not available (Status 404)
+2025-04-07 15:22:25,612 - __main__ - INFO - Processing measurement: DGS10
+2025-04-07 15:22:26,049 - modules.visualizer - INFO - Saved visualization for DGS10 to /Users/zeno.su/Desktop/dailyeconomy/reports/visualizations/DGS10_trend.png
+2025-04-07 15:22:26,051 - modules.llm_insights - ERROR - Ollama service is not healthy: 404
+2025-04-07 15:22:26,051 - modules.llm_insights - WARNING - Using fallback insight for DGS10 due to LLM error: Error: Ollama service is not available (Status 404)
+2025-04-07 15:22:26,051 - __main__ - INFO - Calculating recession risk indicators
+2025-04-07 15:22:26,051 - __main__ - INFO - Generating overall economic summary
+2025-04-07 15:22:26,053 - modules.llm_insights - ERROR - Ollama service is not healthy: 404
+2025-04-07 15:22:26,053 - modules.llm_insights - WARNING - Using fallback summary due to LLM error: Error: Ollama service is not available (Status 404)
+2025-04-07 15:22:26,053 - __main__ - INFO - Generating final report
+2025-04-07 15:22:26,056 - modules.report_generator - INFO - Generated report saved to /Users/zeno.su/Desktop/dailyeconomy/reports/Economy_Report_20250407.html
+2025-04-07 15:22:26,056 - __main__ - INFO - Report successfully generated: /Users/zeno.su/Desktop/dailyeconomy/reports/Economy_Report_20250407.html
+2025-04-07 15:28:10,566 - __main__ - INFO - Starting daily economy report generation for date: 20250407
+2025-04-07 15:28:10,566 - __main__ - INFO - Using new CSV format from directory: /Users/zeno.su/Desktop/dailyeconomy/FRED_20250407
+2025-04-07 15:28:10,566 - __main__ - INFO - Loading FRED data from /Users/zeno.su/Desktop/dailyeconomy
+2025-04-07 15:28:10,566 - modules.data_loader - INFO - Loading FRED data from directory /Users/zeno.su/Desktop/dailyeconomy/FRED_20250407
+2025-04-07 15:28:10,566 - modules.data_loader - INFO - Loading measurement DGS2 from /Users/zeno.su/Desktop/dailyeconomy/FRED_20250407/DGS2_20250407.csv
+2025-04-07 15:28:10,570 - modules.data_loader - INFO - Loading measurement NFCI from /Users/zeno.su/Desktop/dailyeconomy/FRED_20250407/NFCI_20250407.csv
+2025-04-07 15:28:10,572 - modules.data_loader - INFO - Loading measurement ICSA from /Users/zeno.su/Desktop/dailyeconomy/FRED_20250407/ICSA_20250407.csv
+2025-04-07 15:28:10,573 - modules.data_loader - INFO - Loading measurement RSAFS from /Users/zeno.su/Desktop/dailyeconomy/FRED_20250407/RSAFS_20250407.csv
+2025-04-07 15:28:10,574 - modules.data_loader - INFO - Loading measurement CPIAUCSL from /Users/zeno.su/Desktop/dailyeconomy/FRED_20250407/CPIAUCSL_20250407.csv
+2025-04-07 15:28:10,574 - modules.data_loader - INFO - Loading measurement CSUSHPINSA from /Users/zeno.su/Desktop/dailyeconomy/FRED_20250407/CSUSHPINSA_20250407.csv
+2025-04-07 15:28:10,575 - modules.data_loader - INFO - Loading measurement T10Y2Y from /Users/zeno.su/Desktop/dailyeconomy/FRED_20250407/T10Y2Y_20250407.csv
+2025-04-07 15:28:10,578 - modules.data_loader - INFO - Loading measurement DGS10 from /Users/zeno.su/Desktop/dailyeconomy/FRED_20250407/DGS10_20250407.csv
+2025-04-07 15:28:10,582 - __main__ - INFO - Loading context information from /Users/zeno.su/Desktop/dailyeconomy/fred_context.txt
+2025-04-07 15:28:10,582 - modules.data_loader - INFO - Loading context data from /Users/zeno.su/Desktop/dailyeconomy/fred_context.txt
+2025-04-07 15:28:10,582 - __main__ - INFO - Processing 8 measurements
+2025-04-07 15:28:10,582 - __main__ - INFO - Processing measurement: DGS2
+2025-04-07 15:28:10,777 - modules.visualizer - INFO - Saved visualization for DGS2 to /Users/zeno.su/Desktop/dailyeconomy/reports/visualizations/DGS2_trend.png
+2025-04-07 15:28:10,780 - modules.llm_insights - ERROR - Ollama service is not healthy: 404
+2025-04-07 15:28:10,780 - modules.llm_insights - WARNING - Using fallback insight for DGS2 due to LLM error: Error: Ollama service is not available (Status 404)
+2025-04-07 15:28:10,780 - __main__ - INFO - Processing measurement: NFCI
+2025-04-07 15:28:10,922 - modules.visualizer - INFO - Saved visualization for NFCI to /Users/zeno.su/Desktop/dailyeconomy/reports/visualizations/NFCI_trend.png
+2025-04-07 15:28:10,924 - modules.llm_insights - ERROR - Ollama service is not healthy: 404
+2025-04-07 15:28:10,924 - modules.llm_insights - WARNING - Using fallback insight for NFCI due to LLM error: Error: Ollama service is not available (Status 404)
+2025-04-07 15:28:10,924 - __main__ - INFO - Processing measurement: ICSA
+2025-04-07 15:28:11,033 - modules.visualizer - INFO - Saved visualization for ICSA to /Users/zeno.su/Desktop/dailyeconomy/reports/visualizations/ICSA_trend.png
+2025-04-07 15:28:11,035 - modules.llm_insights - ERROR - Ollama service is not healthy: 404
+2025-04-07 15:28:11,036 - modules.llm_insights - WARNING - Using fallback insight for ICSA due to LLM error: Error: Ollama service is not available (Status 404)
+2025-04-07 15:28:11,036 - __main__ - INFO - Processing measurement: RSAFS
+2025-04-07 15:28:11,129 - modules.visualizer - INFO - Saved visualization for RSAFS to /Users/zeno.su/Desktop/dailyeconomy/reports/visualizations/RSAFS_trend.png
+2025-04-07 15:28:11,130 - modules.llm_insights - ERROR - Ollama service is not healthy: 404
+2025-04-07 15:28:11,130 - modules.llm_insights - WARNING - Using fallback insight for RSAFS due to LLM error: Error: Ollama service is not available (Status 404)
+2025-04-07 15:28:11,130 - __main__ - INFO - Processing measurement: CPIAUCSL
+2025-04-07 15:28:11,275 - modules.visualizer - INFO - Saved visualization for CPIAUCSL to /Users/zeno.su/Desktop/dailyeconomy/reports/visualizations/CPIAUCSL_trend.png
+2025-04-07 15:28:11,277 - modules.llm_insights - ERROR - Ollama service is not healthy: 404
+2025-04-07 15:28:11,277 - modules.llm_insights - WARNING - Using fallback insight for CPIAUCSL due to LLM error: Error: Ollama service is not available (Status 404)
+2025-04-07 15:28:11,277 - __main__ - INFO - Processing measurement: CSUSHPINSA
+2025-04-07 15:28:11,381 - modules.visualizer - INFO - Saved visualization for CSUSHPINSA to /Users/zeno.su/Desktop/dailyeconomy/reports/visualizations/CSUSHPINSA_trend.png
+2025-04-07 15:28:11,383 - modules.llm_insights - ERROR - Ollama service is not healthy: 404
+2025-04-07 15:28:11,383 - modules.llm_insights - WARNING - Using fallback insight for CSUSHPINSA due to LLM error: Error: Ollama service is not available (Status 404)
+2025-04-07 15:28:11,383 - __main__ - INFO - Processing measurement: T10Y2Y
+2025-04-07 15:28:11,501 - modules.visualizer - INFO - Saved visualization for T10Y2Y to /Users/zeno.su/Desktop/dailyeconomy/reports/visualizations/T10Y2Y_trend.png
+2025-04-07 15:28:11,503 - modules.llm_insights - ERROR - Ollama service is not healthy: 404
+2025-04-07 15:28:11,503 - modules.llm_insights - WARNING - Using fallback insight for T10Y2Y due to LLM error: Error: Ollama service is not available (Status 404)
+2025-04-07 15:28:11,503 - __main__ - INFO - Processing measurement: DGS10
+2025-04-07 15:28:11,642 - modules.visualizer - INFO - Saved visualization for DGS10 to /Users/zeno.su/Desktop/dailyeconomy/reports/visualizations/DGS10_trend.png
+2025-04-07 15:28:11,644 - modules.llm_insights - ERROR - Ollama service is not healthy: 404
+2025-04-07 15:28:11,644 - modules.llm_insights - WARNING - Using fallback insight for DGS10 due to LLM error: Error: Ollama service is not available (Status 404)
+2025-04-07 15:28:11,644 - __main__ - INFO - Calculating recession risk indicators
+2025-04-07 15:28:11,644 - __main__ - INFO - Generating overall economic summary
+2025-04-07 15:28:11,646 - modules.llm_insights - ERROR - Ollama service is not healthy: 404
+2025-04-07 15:28:11,646 - modules.llm_insights - WARNING - Using fallback summary due to LLM error: Error: Ollama service is not available (Status 404)
+2025-04-07 15:28:11,646 - __main__ - INFO - Generating final report
+2025-04-07 15:28:11,649 - modules.report_generator - INFO - Generated report saved to /Users/zeno.su/Desktop/dailyeconomy/reports/Economy_Report_20250407.html
+2025-04-07 15:28:11,649 - __main__ - INFO - Report successfully generated: /Users/zeno.su/Desktop/dailyeconomy/reports/Economy_Report_20250407.html
+2025-04-07 15:29:45,985 - __main__ - INFO - Starting daily economy report generation for date: 20250407
+2025-04-07 15:29:45,986 - __main__ - INFO - Using new CSV format from directory: /Users/zeno.su/Desktop/dailyeconomy/FRED_20250407
+2025-04-07 15:29:45,986 - __main__ - INFO - Loading FRED data from /Users/zeno.su/Desktop/dailyeconomy
+2025-04-07 15:29:45,986 - modules.data_loader - INFO - Loading FRED data from directory /Users/zeno.su/Desktop/dailyeconomy/FRED_20250407
+2025-04-07 15:29:45,986 - modules.data_loader - INFO - Loading measurement DGS2 from /Users/zeno.su/Desktop/dailyeconomy/FRED_20250407/DGS2_20250407.csv
+2025-04-07 15:29:45,990 - modules.data_loader - INFO - Loading measurement NFCI from /Users/zeno.su/Desktop/dailyeconomy/FRED_20250407/NFCI_20250407.csv
+2025-04-07 15:29:45,992 - modules.data_loader - INFO - Loading measurement ICSA from /Users/zeno.su/Desktop/dailyeconomy/FRED_20250407/ICSA_20250407.csv
+2025-04-07 15:29:45,993 - modules.data_loader - INFO - Loading measurement RSAFS from /Users/zeno.su/Desktop/dailyeconomy/FRED_20250407/RSAFS_20250407.csv
+2025-04-07 15:29:45,994 - modules.data_loader - INFO - Loading measurement CPIAUCSL from /Users/zeno.su/Desktop/dailyeconomy/FRED_20250407/CPIAUCSL_20250407.csv
+2025-04-07 15:29:45,995 - modules.data_loader - INFO - Loading measurement CSUSHPINSA from /Users/zeno.su/Desktop/dailyeconomy/FRED_20250407/CSUSHPINSA_20250407.csv
+2025-04-07 15:29:45,996 - modules.data_loader - INFO - Loading measurement T10Y2Y from /Users/zeno.su/Desktop/dailyeconomy/FRED_20250407/T10Y2Y_20250407.csv
+2025-04-07 15:29:45,999 - modules.data_loader - INFO - Loading measurement DGS10 from /Users/zeno.su/Desktop/dailyeconomy/FRED_20250407/DGS10_20250407.csv
+2025-04-07 15:29:46,003 - __main__ - INFO - Loading context information from /Users/zeno.su/Desktop/dailyeconomy/fred_context.txt
+2025-04-07 15:29:46,004 - modules.data_loader - INFO - Loading context data from /Users/zeno.su/Desktop/dailyeconomy/fred_context.txt
+2025-04-07 15:29:46,004 - __main__ - INFO - Processing 8 measurements
+2025-04-07 15:29:46,004 - __main__ - INFO - Processing measurement: DGS2
+2025-04-07 15:29:46,191 - modules.visualizer - INFO - Saved visualization for DGS2 to /Users/zeno.su/Desktop/dailyeconomy/reports/visualizations/DGS2_trend.png
+2025-04-07 15:29:46,194 - modules.llm_insights - ERROR - Ollama service is not healthy: 404
+2025-04-07 15:29:46,194 - modules.llm_insights - WARNING - Using fallback insight for DGS2 due to LLM error: Error: Ollama service is not available (Status 404)
+2025-04-07 15:29:46,194 - __main__ - INFO - Processing measurement: NFCI
+2025-04-07 15:29:46,334 - modules.visualizer - INFO - Saved visualization for NFCI to /Users/zeno.su/Desktop/dailyeconomy/reports/visualizations/NFCI_trend.png
+2025-04-07 15:29:46,336 - modules.llm_insights - ERROR - Ollama service is not healthy: 404
+2025-04-07 15:29:46,336 - modules.llm_insights - WARNING - Using fallback insight for NFCI due to LLM error: Error: Ollama service is not available (Status 404)
+2025-04-07 15:29:46,336 - __main__ - INFO - Processing measurement: ICSA
+2025-04-07 15:29:46,446 - modules.visualizer - INFO - Saved visualization for ICSA to /Users/zeno.su/Desktop/dailyeconomy/reports/visualizations/ICSA_trend.png
+2025-04-07 15:29:46,448 - modules.llm_insights - ERROR - Ollama service is not healthy: 404
+2025-04-07 15:29:46,448 - modules.llm_insights - WARNING - Using fallback insight for ICSA due to LLM error: Error: Ollama service is not available (Status 404)
+2025-04-07 15:29:46,448 - __main__ - INFO - Processing measurement: RSAFS
+2025-04-07 15:29:46,543 - modules.visualizer - INFO - Saved visualization for RSAFS to /Users/zeno.su/Desktop/dailyeconomy/reports/visualizations/RSAFS_trend.png
+2025-04-07 15:29:46,545 - modules.llm_insights - ERROR - Ollama service is not healthy: 404
+2025-04-07 15:29:46,545 - modules.llm_insights - WARNING - Using fallback insight for RSAFS due to LLM error: Error: Ollama service is not available (Status 404)
+2025-04-07 15:29:46,545 - __main__ - INFO - Processing measurement: CPIAUCSL
+2025-04-07 15:29:46,692 - modules.visualizer - INFO - Saved visualization for CPIAUCSL to /Users/zeno.su/Desktop/dailyeconomy/reports/visualizations/CPIAUCSL_trend.png
+2025-04-07 15:29:46,693 - modules.llm_insights - ERROR - Ollama service is not healthy: 404
+2025-04-07 15:29:46,693 - modules.llm_insights - WARNING - Using fallback insight for CPIAUCSL due to LLM error: Error: Ollama service is not available (Status 404)
+2025-04-07 15:29:46,693 - __main__ - INFO - Processing measurement: CSUSHPINSA
+2025-04-07 15:29:46,798 - modules.visualizer - INFO - Saved visualization for CSUSHPINSA to /Users/zeno.su/Desktop/dailyeconomy/reports/visualizations/CSUSHPINSA_trend.png
+2025-04-07 15:29:46,800 - modules.llm_insights - ERROR - Ollama service is not healthy: 404
+2025-04-07 15:29:46,800 - modules.llm_insights - WARNING - Using fallback insight for CSUSHPINSA due to LLM error: Error: Ollama service is not available (Status 404)
+2025-04-07 15:29:46,800 - __main__ - INFO - Processing measurement: T10Y2Y
+2025-04-07 15:29:46,923 - modules.visualizer - INFO - Saved visualization for T10Y2Y to /Users/zeno.su/Desktop/dailyeconomy/reports/visualizations/T10Y2Y_trend.png
+2025-04-07 15:29:46,925 - modules.llm_insights - ERROR - Ollama service is not healthy: 404
+2025-04-07 15:29:46,925 - modules.llm_insights - WARNING - Using fallback insight for T10Y2Y due to LLM error: Error: Ollama service is not available (Status 404)
+2025-04-07 15:29:46,925 - __main__ - INFO - Processing measurement: DGS10
+2025-04-07 15:29:47,067 - modules.visualizer - INFO - Saved visualization for DGS10 to /Users/zeno.su/Desktop/dailyeconomy/reports/visualizations/DGS10_trend.png
+2025-04-07 15:29:47,069 - modules.llm_insights - ERROR - Ollama service is not healthy: 404
+2025-04-07 15:29:47,069 - modules.llm_insights - WARNING - Using fallback insight for DGS10 due to LLM error: Error: Ollama service is not available (Status 404)
+2025-04-07 15:29:47,069 - __main__ - INFO - Calculating recession risk indicators
+2025-04-07 15:29:47,069 - __main__ - INFO - Generating overall economic summary
+2025-04-07 15:29:47,071 - modules.llm_insights - ERROR - Ollama service is not healthy: 404
+2025-04-07 15:29:47,071 - modules.llm_insights - WARNING - Using fallback summary due to LLM error: Error: Ollama service is not available (Status 404)
+2025-04-07 15:29:47,071 - __main__ - INFO - Generating final report
+2025-04-07 15:29:47,074 - modules.report_generator - INFO - Generated report saved to /Users/zeno.su/Desktop/dailyeconomy/reports/Economy_Report_20250407.html
+2025-04-07 15:29:47,074 - __main__ - INFO - Report successfully generated: /Users/zeno.su/Desktop/dailyeconomy/reports/Economy_Report_20250407.html
+2025-04-07 15:51:51,707 - __main__ - INFO - Starting daily economy report generation for date: 20250407
+2025-04-07 15:51:51,707 - __main__ - INFO - Using new CSV format from directory: /Users/zeno.su/Desktop/dailyeconomy/FRED_20250407
+2025-04-07 15:51:51,707 - __main__ - INFO - Loading FRED data from /Users/zeno.su/Desktop/dailyeconomy
+2025-04-07 15:51:51,707 - modules.data_loader - INFO - Loading FRED data from directory /Users/zeno.su/Desktop/dailyeconomy/FRED_20250407
+2025-04-07 15:51:51,707 - modules.data_loader - INFO - Loading measurement DGS2 from /Users/zeno.su/Desktop/dailyeconomy/FRED_20250407/DGS2_20250407.csv
+2025-04-07 15:51:51,712 - modules.data_loader - INFO - Loading measurement NFCI from /Users/zeno.su/Desktop/dailyeconomy/FRED_20250407/NFCI_20250407.csv
+2025-04-07 15:51:51,714 - modules.data_loader - INFO - Loading measurement ICSA from /Users/zeno.su/Desktop/dailyeconomy/FRED_20250407/ICSA_20250407.csv
+2025-04-07 15:51:51,715 - modules.data_loader - INFO - Loading measurement RSAFS from /Users/zeno.su/Desktop/dailyeconomy/FRED_20250407/RSAFS_20250407.csv
+2025-04-07 15:51:51,716 - modules.data_loader - INFO - Loading measurement CPIAUCSL from /Users/zeno.su/Desktop/dailyeconomy/FRED_20250407/CPIAUCSL_20250407.csv
+2025-04-07 15:51:51,717 - modules.data_loader - INFO - Loading measurement CSUSHPINSA from /Users/zeno.su/Desktop/dailyeconomy/FRED_20250407/CSUSHPINSA_20250407.csv
+2025-04-07 15:51:51,718 - modules.data_loader - INFO - Loading measurement T10Y2Y from /Users/zeno.su/Desktop/dailyeconomy/FRED_20250407/T10Y2Y_20250407.csv
+2025-04-07 15:51:51,721 - modules.data_loader - INFO - Loading measurement DGS10 from /Users/zeno.su/Desktop/dailyeconomy/FRED_20250407/DGS10_20250407.csv
+2025-04-07 15:51:51,725 - __main__ - INFO - Loading context information from /Users/zeno.su/Desktop/dailyeconomy/fred_context.txt
+2025-04-07 15:51:51,725 - modules.data_loader - INFO - Loading context data from /Users/zeno.su/Desktop/dailyeconomy/fred_context.txt
+2025-04-07 15:51:51,725 - __main__ - INFO - Processing 8 measurements
+2025-04-07 15:51:51,725 - __main__ - INFO - Processing measurement: DGS2
+2025-04-07 15:51:51,945 - modules.visualizer - INFO - Saved visualization for DGS2 to /Users/zeno.su/Desktop/dailyeconomy/reports/visualizations/DGS2_trend.png
+2025-04-07 15:51:51,945 - modules.llm_insights - ERROR - Error generating insight for DGS2: unsupported format string passed to NoneType.__format__
+2025-04-07 15:51:51,945 - __main__ - INFO - Processing measurement: NFCI
+2025-04-07 15:51:52,083 - modules.visualizer - INFO - Saved visualization for NFCI to /Users/zeno.su/Desktop/dailyeconomy/reports/visualizations/NFCI_trend.png
+2025-04-07 15:51:52,083 - modules.llm_insights - ERROR - Error generating insight for NFCI: unsupported format string passed to NoneType.__format__
+2025-04-07 15:51:52,083 - __main__ - INFO - Processing measurement: ICSA
+2025-04-07 15:51:52,198 - modules.visualizer - INFO - Saved visualization for ICSA to /Users/zeno.su/Desktop/dailyeconomy/reports/visualizations/ICSA_trend.png
+2025-04-07 15:51:52,198 - modules.llm_insights - ERROR - Error generating insight for ICSA: unsupported format string passed to NoneType.__format__
+2025-04-07 15:51:52,198 - __main__ - INFO - Processing measurement: RSAFS
+2025-04-07 15:51:52,294 - modules.visualizer - INFO - Saved visualization for RSAFS to /Users/zeno.su/Desktop/dailyeconomy/reports/visualizations/RSAFS_trend.png
+2025-04-07 15:51:52,294 - modules.llm_insights - ERROR - Error generating insight for RSAFS: unsupported format string passed to NoneType.__format__
+2025-04-07 15:51:52,294 - __main__ - INFO - Processing measurement: CPIAUCSL
+2025-04-07 15:51:52,437 - modules.visualizer - INFO - Saved visualization for CPIAUCSL to /Users/zeno.su/Desktop/dailyeconomy/reports/visualizations/CPIAUCSL_trend.png
+2025-04-07 15:51:52,437 - modules.llm_insights - ERROR - Error generating insight for CPIAUCSL: unsupported format string passed to NoneType.__format__
+2025-04-07 15:51:52,437 - __main__ - INFO - Processing measurement: CSUSHPINSA
+2025-04-07 15:51:52,539 - modules.visualizer - INFO - Saved visualization for CSUSHPINSA to /Users/zeno.su/Desktop/dailyeconomy/reports/visualizations/CSUSHPINSA_trend.png
+2025-04-07 15:51:52,539 - modules.llm_insights - ERROR - Error generating insight for CSUSHPINSA: unsupported format string passed to NoneType.__format__
+2025-04-07 15:51:52,539 - __main__ - INFO - Processing measurement: T10Y2Y
+2025-04-07 15:51:52,660 - modules.visualizer - INFO - Saved visualization for T10Y2Y to /Users/zeno.su/Desktop/dailyeconomy/reports/visualizations/T10Y2Y_trend.png
+2025-04-07 15:51:52,660 - modules.llm_insights - ERROR - Error generating insight for T10Y2Y: unsupported format string passed to NoneType.__format__
+2025-04-07 15:51:52,660 - __main__ - INFO - Processing measurement: DGS10
+2025-04-07 15:51:52,801 - modules.visualizer - INFO - Saved visualization for DGS10 to /Users/zeno.su/Desktop/dailyeconomy/reports/visualizations/DGS10_trend.png
+2025-04-07 15:51:52,801 - modules.llm_insights - ERROR - Error generating insight for DGS10: unsupported format string passed to NoneType.__format__
+2025-04-07 15:51:52,801 - __main__ - INFO - Calculating recession risk indicators
+2025-04-07 15:51:52,801 - __main__ - INFO - Generating overall economic summary
+2025-04-07 15:51:52,804 - modules.llm_insights - ERROR - Ollama service is not healthy: 404
+2025-04-07 15:51:52,804 - modules.llm_insights - WARNING - Using fallback summary due to LLM error: Error: Ollama service is not available (Status 404)
+2025-04-07 15:51:52,804 - __main__ - INFO - Generating final report
+2025-04-07 15:51:52,806 - modules.report_generator - ERROR - Error generating report: expected token 'end of print statement', got 'month_change'
+2025-04-07 15:51:52,806 - __main__ - ERROR - Failed to generate report
+2025-04-07 15:54:58,611 - __main__ - INFO - Starting daily economy report generation for date: 20250407
+2025-04-07 15:54:58,612 - __main__ - INFO - Using new CSV format from directory: /Users/zeno.su/Desktop/dailyeconomy/FRED_20250407
+2025-04-07 15:54:58,612 - __main__ - INFO - Loading FRED data from /Users/zeno.su/Desktop/dailyeconomy
+2025-04-07 15:54:58,612 - modules.data_loader - INFO - Loading FRED data from directory /Users/zeno.su/Desktop/dailyeconomy/FRED_20250407
+2025-04-07 15:54:58,612 - modules.data_loader - INFO - Loading measurement DGS2 from /Users/zeno.su/Desktop/dailyeconomy/FRED_20250407/DGS2_20250407.csv
+2025-04-07 15:54:58,616 - modules.data_loader - INFO - Loading measurement NFCI from /Users/zeno.su/Desktop/dailyeconomy/FRED_20250407/NFCI_20250407.csv
+2025-04-07 15:54:58,617 - modules.data_loader - INFO - Loading measurement ICSA from /Users/zeno.su/Desktop/dailyeconomy/FRED_20250407/ICSA_20250407.csv
+2025-04-07 15:54:58,618 - modules.data_loader - INFO - Loading measurement RSAFS from /Users/zeno.su/Desktop/dailyeconomy/FRED_20250407/RSAFS_20250407.csv
+2025-04-07 15:54:58,619 - modules.data_loader - INFO - Loading measurement CPIAUCSL from /Users/zeno.su/Desktop/dailyeconomy/FRED_20250407/CPIAUCSL_20250407.csv
+2025-04-07 15:54:58,620 - modules.data_loader - INFO - Loading measurement CSUSHPINSA from /Users/zeno.su/Desktop/dailyeconomy/FRED_20250407/CSUSHPINSA_20250407.csv
+2025-04-07 15:54:58,620 - modules.data_loader - INFO - Loading measurement T10Y2Y from /Users/zeno.su/Desktop/dailyeconomy/FRED_20250407/T10Y2Y_20250407.csv
+2025-04-07 15:54:58,624 - modules.data_loader - INFO - Loading measurement DGS10 from /Users/zeno.su/Desktop/dailyeconomy/FRED_20250407/DGS10_20250407.csv
+2025-04-07 15:54:58,628 - __main__ - INFO - Loading context information from /Users/zeno.su/Desktop/dailyeconomy/fred_context.txt
+2025-04-07 15:54:58,628 - modules.data_loader - INFO - Loading context data from /Users/zeno.su/Desktop/dailyeconomy/fred_context.txt
+2025-04-07 15:54:58,628 - __main__ - INFO - Processing 8 measurements
+2025-04-07 15:54:58,628 - __main__ - INFO - Processing measurement: DGS2
+2025-04-07 15:54:58,826 - modules.visualizer - INFO - Saved visualization for DGS2 to /Users/zeno.su/Desktop/dailyeconomy/reports/visualizations/DGS2_trend.png
+2025-04-07 15:54:58,829 - modules.llm_insights - ERROR - Ollama service is not healthy: 404
+2025-04-07 15:54:58,829 - modules.llm_insights - WARNING - Using fallback insight for DGS2 due to LLM error: Error: Ollama service is not available (Status 404)
+2025-04-07 15:54:58,829 - __main__ - INFO - Processing measurement: NFCI
+2025-04-07 15:54:58,969 - modules.visualizer - INFO - Saved visualization for NFCI to /Users/zeno.su/Desktop/dailyeconomy/reports/visualizations/NFCI_trend.png
+2025-04-07 15:54:58,971 - modules.llm_insights - ERROR - Ollama service is not healthy: 404
+2025-04-07 15:54:58,971 - modules.llm_insights - WARNING - Using fallback insight for NFCI due to LLM error: Error: Ollama service is not available (Status 404)
+2025-04-07 15:54:58,971 - __main__ - INFO - Processing measurement: ICSA
+2025-04-07 15:54:59,081 - modules.visualizer - INFO - Saved visualization for ICSA to /Users/zeno.su/Desktop/dailyeconomy/reports/visualizations/ICSA_trend.png
+2025-04-07 15:54:59,082 - modules.llm_insights - ERROR - Ollama service is not healthy: 404
+2025-04-07 15:54:59,082 - modules.llm_insights - WARNING - Using fallback insight for ICSA due to LLM error: Error: Ollama service is not available (Status 404)
+2025-04-07 15:54:59,083 - __main__ - INFO - Processing measurement: RSAFS
+2025-04-07 15:54:59,177 - modules.visualizer - INFO - Saved visualization for RSAFS to /Users/zeno.su/Desktop/dailyeconomy/reports/visualizations/RSAFS_trend.png
+2025-04-07 15:54:59,179 - modules.llm_insights - ERROR - Ollama service is not healthy: 404
+2025-04-07 15:54:59,179 - modules.llm_insights - WARNING - Using fallback insight for RSAFS due to LLM error: Error: Ollama service is not available (Status 404)
+2025-04-07 15:54:59,179 - __main__ - INFO - Processing measurement: CPIAUCSL
+2025-04-07 15:54:59,331 - modules.visualizer - INFO - Saved visualization for CPIAUCSL to /Users/zeno.su/Desktop/dailyeconomy/reports/visualizations/CPIAUCSL_trend.png
+2025-04-07 15:54:59,333 - modules.llm_insights - ERROR - Ollama service is not healthy: 404
+2025-04-07 15:54:59,333 - modules.llm_insights - WARNING - Using fallback insight for CPIAUCSL due to LLM error: Error: Ollama service is not available (Status 404)
+2025-04-07 15:54:59,333 - __main__ - INFO - Processing measurement: CSUSHPINSA
+2025-04-07 15:54:59,442 - modules.visualizer - INFO - Saved visualization for CSUSHPINSA to /Users/zeno.su/Desktop/dailyeconomy/reports/visualizations/CSUSHPINSA_trend.png
+2025-04-07 15:54:59,444 - modules.llm_insights - ERROR - Ollama service is not healthy: 404
+2025-04-07 15:54:59,444 - modules.llm_insights - WARNING - Using fallback insight for CSUSHPINSA due to LLM error: Error: Ollama service is not available (Status 404)
+2025-04-07 15:54:59,444 - __main__ - INFO - Processing measurement: T10Y2Y
+2025-04-07 15:54:59,569 - modules.visualizer - INFO - Saved visualization for T10Y2Y to /Users/zeno.su/Desktop/dailyeconomy/reports/visualizations/T10Y2Y_trend.png
+2025-04-07 15:54:59,571 - modules.llm_insights - ERROR - Ollama service is not healthy: 404
+2025-04-07 15:54:59,571 - modules.llm_insights - WARNING - Using fallback insight for T10Y2Y due to LLM error: Error: Ollama service is not available (Status 404)
+2025-04-07 15:54:59,571 - __main__ - INFO - Processing measurement: DGS10
+2025-04-07 15:54:59,726 - modules.visualizer - INFO - Saved visualization for DGS10 to /Users/zeno.su/Desktop/dailyeconomy/reports/visualizations/DGS10_trend.png
+2025-04-07 15:54:59,728 - modules.llm_insights - ERROR - Ollama service is not healthy: 404
+2025-04-07 15:54:59,728 - modules.llm_insights - WARNING - Using fallback insight for DGS10 due to LLM error: Error: Ollama service is not available (Status 404)
+2025-04-07 15:54:59,728 - __main__ - INFO - Calculating recession risk indicators
+2025-04-07 15:54:59,728 - __main__ - INFO - Generating overall economic summary
+2025-04-07 15:54:59,729 - modules.llm_insights - ERROR - Ollama service is not healthy: 404
+2025-04-07 15:54:59,729 - modules.llm_insights - WARNING - Using fallback summary due to LLM error: Error: Ollama service is not available (Status 404)
+2025-04-07 15:54:59,729 - __main__ - INFO - Generating final report
+2025-04-07 15:54:59,735 - modules.report_generator - INFO - Generated report saved to /Users/zeno.su/Desktop/dailyeconomy/reports/Economy_Report_20250407.html
+2025-04-07 15:54:59,735 - __main__ - INFO - Report successfully generated: /Users/zeno.su/Desktop/dailyeconomy/reports/Economy_Report_20250407.html
+2025-04-07 16:14:29,147 - __main__ - INFO - Starting daily economy report generation for date: 20250407
+2025-04-07 16:14:29,147 - __main__ - INFO - Using new CSV format from directory: /Users/zeno.su/Desktop/dailyeconomy/FRED_20250407
+2025-04-07 16:14:29,147 - __main__ - INFO - Loading FRED data from /Users/zeno.su/Desktop/dailyeconomy
+2025-04-07 16:14:29,147 - modules.data_loader - INFO - Loading FRED data from directory /Users/zeno.su/Desktop/dailyeconomy/FRED_20250407
+2025-04-07 16:14:29,147 - modules.data_loader - INFO - Loading measurement DGS2 from /Users/zeno.su/Desktop/dailyeconomy/FRED_20250407/DGS2_20250407.csv
+2025-04-07 16:14:29,151 - modules.data_loader - INFO - Loading measurement NFCI from /Users/zeno.su/Desktop/dailyeconomy/FRED_20250407/NFCI_20250407.csv
+2025-04-07 16:14:29,153 - modules.data_loader - INFO - Loading measurement ICSA from /Users/zeno.su/Desktop/dailyeconomy/FRED_20250407/ICSA_20250407.csv
+2025-04-07 16:14:29,154 - modules.data_loader - INFO - Loading measurement RSAFS from /Users/zeno.su/Desktop/dailyeconomy/FRED_20250407/RSAFS_20250407.csv
+2025-04-07 16:14:29,154 - modules.data_loader - INFO - Loading measurement CPIAUCSL from /Users/zeno.su/Desktop/dailyeconomy/FRED_20250407/CPIAUCSL_20250407.csv
+2025-04-07 16:14:29,155 - modules.data_loader - INFO - Loading measurement CSUSHPINSA from /Users/zeno.su/Desktop/dailyeconomy/FRED_20250407/CSUSHPINSA_20250407.csv
+2025-04-07 16:14:29,156 - modules.data_loader - INFO - Loading measurement T10Y2Y from /Users/zeno.su/Desktop/dailyeconomy/FRED_20250407/T10Y2Y_20250407.csv
+2025-04-07 16:14:29,159 - modules.data_loader - INFO - Loading measurement DGS10 from /Users/zeno.su/Desktop/dailyeconomy/FRED_20250407/DGS10_20250407.csv
+2025-04-07 16:14:29,163 - __main__ - INFO - Loading context information from /Users/zeno.su/Desktop/dailyeconomy/fred_context.txt
+2025-04-07 16:14:29,163 - modules.data_loader - INFO - Loading context data from /Users/zeno.su/Desktop/dailyeconomy/fred_context.txt
+2025-04-07 16:14:29,163 - __main__ - INFO - Processing 8 measurements
+2025-04-07 16:14:29,163 - __main__ - INFO - Processing measurement: DGS2
+2025-04-07 16:14:29,361 - modules.visualizer - INFO - Saved visualization for DGS2 to /Users/zeno.su/Desktop/dailyeconomy/reports/visualizations/DGS2_trend.png
+2025-04-07 16:14:29,364 - modules.llm_insights - ERROR - Ollama service is not healthy: 404
+2025-04-07 16:14:29,364 - modules.llm_insights - WARNING - Using fallback insight for DGS2 due to LLM error: Error: Ollama service is not available (Status 404)
+2025-04-07 16:14:29,364 - __main__ - INFO - Processing measurement: NFCI
+2025-04-07 16:14:29,503 - modules.visualizer - INFO - Saved visualization for NFCI to /Users/zeno.su/Desktop/dailyeconomy/reports/visualizations/NFCI_trend.png
+2025-04-07 16:14:29,505 - modules.llm_insights - ERROR - Ollama service is not healthy: 404
+2025-04-07 16:14:29,505 - modules.llm_insights - WARNING - Using fallback insight for NFCI due to LLM error: Error: Ollama service is not available (Status 404)
+2025-04-07 16:14:29,505 - __main__ - INFO - Processing measurement: ICSA
+2025-04-07 16:14:29,616 - modules.visualizer - INFO - Saved visualization for ICSA to /Users/zeno.su/Desktop/dailyeconomy/reports/visualizations/ICSA_trend.png
+2025-04-07 16:14:29,619 - modules.llm_insights - ERROR - Ollama service is not healthy: 404
+2025-04-07 16:14:29,619 - modules.llm_insights - WARNING - Using fallback insight for ICSA due to LLM error: Error: Ollama service is not available (Status 404)
+2025-04-07 16:14:29,619 - __main__ - INFO - Processing measurement: RSAFS
+2025-04-07 16:14:29,712 - modules.visualizer - INFO - Saved visualization for RSAFS to /Users/zeno.su/Desktop/dailyeconomy/reports/visualizations/RSAFS_trend.png
+2025-04-07 16:14:29,714 - modules.llm_insights - ERROR - Ollama service is not healthy: 404
+2025-04-07 16:14:29,714 - modules.llm_insights - WARNING - Using fallback insight for RSAFS due to LLM error: Error: Ollama service is not available (Status 404)
+2025-04-07 16:14:29,714 - __main__ - INFO - Processing measurement: CPIAUCSL
+2025-04-07 16:14:29,860 - modules.visualizer - INFO - Saved visualization for CPIAUCSL to /Users/zeno.su/Desktop/dailyeconomy/reports/visualizations/CPIAUCSL_trend.png
+2025-04-07 16:14:29,862 - modules.llm_insights - ERROR - Ollama service is not healthy: 404
+2025-04-07 16:14:29,862 - modules.llm_insights - WARNING - Using fallback insight for CPIAUCSL due to LLM error: Error: Ollama service is not available (Status 404)
+2025-04-07 16:14:29,862 - __main__ - INFO - Processing measurement: CSUSHPINSA
+2025-04-07 16:14:29,963 - modules.visualizer - INFO - Saved visualization for CSUSHPINSA to /Users/zeno.su/Desktop/dailyeconomy/reports/visualizations/CSUSHPINSA_trend.png
+2025-04-07 16:14:29,965 - modules.llm_insights - ERROR - Ollama service is not healthy: 404
+2025-04-07 16:14:29,965 - modules.llm_insights - WARNING - Using fallback insight for CSUSHPINSA due to LLM error: Error: Ollama service is not available (Status 404)
+2025-04-07 16:14:29,965 - __main__ - INFO - Processing measurement: T10Y2Y
+2025-04-07 16:14:30,083 - modules.visualizer - INFO - Saved visualization for T10Y2Y to /Users/zeno.su/Desktop/dailyeconomy/reports/visualizations/T10Y2Y_trend.png
+2025-04-07 16:14:30,084 - modules.llm_insights - ERROR - Ollama service is not healthy: 404
+2025-04-07 16:14:30,085 - modules.llm_insights - WARNING - Using fallback insight for T10Y2Y due to LLM error: Error: Ollama service is not available (Status 404)
+2025-04-07 16:14:30,085 - __main__ - INFO - Processing measurement: DGS10
+2025-04-07 16:14:30,224 - modules.visualizer - INFO - Saved visualization for DGS10 to /Users/zeno.su/Desktop/dailyeconomy/reports/visualizations/DGS10_trend.png
+2025-04-07 16:14:30,226 - modules.llm_insights - ERROR - Ollama service is not healthy: 404
+2025-04-07 16:14:30,226 - modules.llm_insights - WARNING - Using fallback insight for DGS10 due to LLM error: Error: Ollama service is not available (Status 404)
+2025-04-07 16:14:30,226 - __main__ - INFO - Calculating recession risk indicators
+2025-04-07 16:14:30,226 - modules.analyzer - INFO - Skipping risk calculation for NFCI: data from 2025-03-28 00:00:00 is before cutoff date 2025-04-03 00:00:00
+2025-04-07 16:14:30,226 - modules.analyzer - INFO - Skipping risk calculation for ICSA: data from 2025-03-29 00:00:00 is before cutoff date 2025-04-03 00:00:00
+2025-04-07 16:14:30,226 - modules.analyzer - INFO - Skipping risk calculation for RSAFS: data from 2025-02-01 00:00:00 is before cutoff date 2025-04-03 00:00:00
+2025-04-07 16:14:30,226 - modules.analyzer - INFO - Skipping risk calculation for CPIAUCSL: data from 2025-02-01 00:00:00 is before cutoff date 2025-04-03 00:00:00
+2025-04-07 16:14:30,226 - modules.analyzer - INFO - Skipping risk calculation for CSUSHPINSA: data from 2025-01-01 00:00:00 is before cutoff date 2025-04-03 00:00:00
+2025-04-07 16:14:30,226 - __main__ - INFO - Generating overall economic summary
+2025-04-07 16:14:30,228 - modules.llm_insights - ERROR - Ollama service is not healthy: 404
+2025-04-07 16:14:30,228 - modules.llm_insights - WARNING - Using fallback summary due to LLM error: Error: Ollama service is not available (Status 404)
+2025-04-07 16:14:30,228 - __main__ - INFO - Generating final report
+2025-04-07 16:14:30,233 - modules.report_generator - INFO - Generated report saved to /Users/zeno.su/Desktop/dailyeconomy/reports/Economy_Report_20250407.html
+2025-04-07 16:14:30,233 - __main__ - INFO - Report successfully generated: /Users/zeno.su/Desktop/dailyeconomy/reports/Economy_Report_20250407.html
+2025-04-07 16:36:17,233 - __main__ - INFO - Starting daily economy report generation for date: 20250407
+2025-04-07 16:36:17,233 - __main__ - INFO - Using new CSV format from directory: /Users/zeno.su/Desktop/dailyeconomy/FRED_20250407
+2025-04-07 16:36:17,233 - __main__ - INFO - Loading FRED data from /Users/zeno.su/Desktop/dailyeconomy
+2025-04-07 16:36:17,233 - modules.data_loader - INFO - Loading FRED data from directory /Users/zeno.su/Desktop/dailyeconomy/FRED_20250407
+2025-04-07 16:36:17,233 - modules.data_loader - INFO - Loading measurement DGS2 from /Users/zeno.su/Desktop/dailyeconomy/FRED_20250407/DGS2_20250407.csv
+2025-04-07 16:36:17,238 - modules.data_loader - INFO - Loading measurement NFCI from /Users/zeno.su/Desktop/dailyeconomy/FRED_20250407/NFCI_20250407.csv
+2025-04-07 16:36:17,239 - modules.data_loader - INFO - Loading measurement ICSA from /Users/zeno.su/Desktop/dailyeconomy/FRED_20250407/ICSA_20250407.csv
+2025-04-07 16:36:17,240 - modules.data_loader - INFO - Loading measurement RSAFS from /Users/zeno.su/Desktop/dailyeconomy/FRED_20250407/RSAFS_20250407.csv
+2025-04-07 16:36:17,241 - modules.data_loader - INFO - Loading measurement CPIAUCSL from /Users/zeno.su/Desktop/dailyeconomy/FRED_20250407/CPIAUCSL_20250407.csv
+2025-04-07 16:36:17,242 - modules.data_loader - INFO - Loading measurement CSUSHPINSA from /Users/zeno.su/Desktop/dailyeconomy/FRED_20250407/CSUSHPINSA_20250407.csv
+2025-04-07 16:36:17,242 - modules.data_loader - INFO - Loading measurement T10Y2Y from /Users/zeno.su/Desktop/dailyeconomy/FRED_20250407/T10Y2Y_20250407.csv
+2025-04-07 16:36:17,246 - modules.data_loader - INFO - Loading measurement DGS10 from /Users/zeno.su/Desktop/dailyeconomy/FRED_20250407/DGS10_20250407.csv
+2025-04-07 16:36:17,250 - __main__ - INFO - Loading context information from /Users/zeno.su/Desktop/dailyeconomy/fred_context.txt
+2025-04-07 16:36:17,250 - modules.data_loader - INFO - Loading context data from /Users/zeno.su/Desktop/dailyeconomy/fred_context.txt
+2025-04-07 16:36:17,250 - __main__ - INFO - Processing 8 measurements
+2025-04-07 16:36:17,251 - __main__ - INFO - Processing measurement: DGS2
+2025-04-07 16:36:17,436 - modules.visualizer - INFO - Saved visualization for DGS2 to /Users/zeno.su/Desktop/dailyeconomy/reports/visualizations/DGS2_trend.png
+2025-04-07 16:36:17,438 - modules.llm_insights - ERROR - Ollama service is not healthy: 404
+2025-04-07 16:36:17,438 - modules.llm_insights - WARNING - Using fallback insight for DGS2 due to LLM error: Error: Ollama service is not available (Status 404)
+2025-04-07 16:36:17,438 - __main__ - INFO - Processing measurement: NFCI
+2025-04-07 16:36:17,578 - modules.visualizer - INFO - Saved visualization for NFCI to /Users/zeno.su/Desktop/dailyeconomy/reports/visualizations/NFCI_trend.png
+2025-04-07 16:36:17,580 - modules.llm_insights - ERROR - Ollama service is not healthy: 404
+2025-04-07 16:36:17,580 - modules.llm_insights - WARNING - Using fallback insight for NFCI due to LLM error: Error: Ollama service is not available (Status 404)
+2025-04-07 16:36:17,580 - __main__ - INFO - Processing measurement: ICSA
+2025-04-07 16:36:17,689 - modules.visualizer - INFO - Saved visualization for ICSA to /Users/zeno.su/Desktop/dailyeconomy/reports/visualizations/ICSA_trend.png
+2025-04-07 16:36:17,691 - modules.llm_insights - ERROR - Ollama service is not healthy: 404
+2025-04-07 16:36:17,691 - modules.llm_insights - WARNING - Using fallback insight for ICSA due to LLM error: Error: Ollama service is not available (Status 404)
+2025-04-07 16:36:17,691 - __main__ - INFO - Processing measurement: RSAFS
+2025-04-07 16:36:17,784 - modules.visualizer - INFO - Saved visualization for RSAFS to /Users/zeno.su/Desktop/dailyeconomy/reports/visualizations/RSAFS_trend.png
+2025-04-07 16:36:17,786 - modules.llm_insights - ERROR - Ollama service is not healthy: 404
+2025-04-07 16:36:17,786 - modules.llm_insights - WARNING - Using fallback insight for RSAFS due to LLM error: Error: Ollama service is not available (Status 404)
+2025-04-07 16:36:17,786 - __main__ - INFO - Processing measurement: CPIAUCSL
+2025-04-07 16:36:17,933 - modules.visualizer - INFO - Saved visualization for CPIAUCSL to /Users/zeno.su/Desktop/dailyeconomy/reports/visualizations/CPIAUCSL_trend.png
+2025-04-07 16:36:17,935 - modules.llm_insights - ERROR - Ollama service is not healthy: 404
+2025-04-07 16:36:17,935 - modules.llm_insights - WARNING - Using fallback insight for CPIAUCSL due to LLM error: Error: Ollama service is not available (Status 404)
+2025-04-07 16:36:17,935 - __main__ - INFO - Processing measurement: CSUSHPINSA
+2025-04-07 16:36:18,037 - modules.visualizer - INFO - Saved visualization for CSUSHPINSA to /Users/zeno.su/Desktop/dailyeconomy/reports/visualizations/CSUSHPINSA_trend.png
+2025-04-07 16:36:18,038 - modules.llm_insights - ERROR - Ollama service is not healthy: 404
+2025-04-07 16:36:18,039 - modules.llm_insights - WARNING - Using fallback insight for CSUSHPINSA due to LLM error: Error: Ollama service is not available (Status 404)
+2025-04-07 16:36:18,039 - __main__ - INFO - Processing measurement: T10Y2Y
+2025-04-07 16:36:18,158 - modules.visualizer - INFO - Saved visualization for T10Y2Y to /Users/zeno.su/Desktop/dailyeconomy/reports/visualizations/T10Y2Y_trend.png
+2025-04-07 16:36:18,160 - modules.llm_insights - ERROR - Ollama service is not healthy: 404
+2025-04-07 16:36:18,160 - modules.llm_insights - WARNING - Using fallback insight for T10Y2Y due to LLM error: Error: Ollama service is not available (Status 404)
+2025-04-07 16:36:18,160 - __main__ - INFO - Processing measurement: DGS10
+2025-04-07 16:36:18,302 - modules.visualizer - INFO - Saved visualization for DGS10 to /Users/zeno.su/Desktop/dailyeconomy/reports/visualizations/DGS10_trend.png
+2025-04-07 16:36:18,303 - modules.llm_insights - ERROR - Ollama service is not healthy: 404
+2025-04-07 16:36:18,303 - modules.llm_insights - WARNING - Using fallback insight for DGS10 due to LLM error: Error: Ollama service is not available (Status 404)
+2025-04-07 16:36:18,303 - __main__ - INFO - Calculating recession risk indicators
+2025-04-07 16:36:18,304 - modules.analyzer - INFO - Skipping risk calculation for NFCI: data from 2025-03-28 00:00:00 is before cutoff date 2025-03-30 16:36:18.303951
+2025-04-07 16:36:18,304 - modules.analyzer - INFO - Skipping risk calculation for ICSA: data from 2025-03-29 00:00:00 is before cutoff date 2025-03-30 16:36:18.303951
+2025-04-07 16:36:18,304 - modules.analyzer - INFO - Skipping risk calculation for RSAFS: data from 2025-02-01 00:00:00 is before cutoff date 2025-03-30 16:36:18.303951
+2025-04-07 16:36:18,304 - modules.analyzer - INFO - Skipping risk calculation for CPIAUCSL: data from 2025-02-01 00:00:00 is before cutoff date 2025-03-30 16:36:18.303951
+2025-04-07 16:36:18,304 - modules.analyzer - INFO - Skipping risk calculation for CSUSHPINSA: data from 2025-01-01 00:00:00 is before cutoff date 2025-03-30 16:36:18.303951
+2025-04-07 16:36:18,304 - __main__ - INFO - Generating overall economic summary
+2025-04-07 16:36:18,305 - modules.llm_insights - ERROR - Ollama service is not healthy: 404
+2025-04-07 16:36:18,305 - modules.llm_insights - WARNING - Using fallback summary due to LLM error: Error: Ollama service is not available (Status 404)
+2025-04-07 16:36:18,305 - __main__ - INFO - Generating final report
+2025-04-07 16:36:18,310 - modules.report_generator - INFO - Generated report saved to /Users/zeno.su/Desktop/dailyeconomy/reports/Economy_Report_20250407.html
+2025-04-07 16:36:18,310 - __main__ - INFO - Report successfully generated: /Users/zeno.su/Desktop/dailyeconomy/reports/Economy_Report_20250407.html
+2025-04-07 16:45:27,645 - __main__ - INFO - Starting daily economy report generation for date: 20250407
+2025-04-07 16:45:27,645 - __main__ - INFO - Using new CSV format from directory: /Users/zeno.su/Desktop/dailyeconomy/FRED_20250407
+2025-04-07 16:45:27,645 - __main__ - INFO - Loading FRED data from /Users/zeno.su/Desktop/dailyeconomy
+2025-04-07 16:45:27,645 - modules.data_loader - INFO - Loading FRED data from directory /Users/zeno.su/Desktop/dailyeconomy/FRED_20250407
+2025-04-07 16:45:27,645 - modules.data_loader - INFO - Loading measurement DGS2 from /Users/zeno.su/Desktop/dailyeconomy/FRED_20250407/DGS2_20250407.csv
+2025-04-07 16:45:27,649 - modules.data_loader - INFO - Loading measurement NFCI from /Users/zeno.su/Desktop/dailyeconomy/FRED_20250407/NFCI_20250407.csv
+2025-04-07 16:45:27,651 - modules.data_loader - INFO - Loading measurement ICSA from /Users/zeno.su/Desktop/dailyeconomy/FRED_20250407/ICSA_20250407.csv
+2025-04-07 16:45:27,652 - modules.data_loader - INFO - Loading measurement RSAFS from /Users/zeno.su/Desktop/dailyeconomy/FRED_20250407/RSAFS_20250407.csv
+2025-04-07 16:45:27,653 - modules.data_loader - INFO - Loading measurement CPIAUCSL from /Users/zeno.su/Desktop/dailyeconomy/FRED_20250407/CPIAUCSL_20250407.csv
+2025-04-07 16:45:27,653 - modules.data_loader - INFO - Loading measurement CSUSHPINSA from /Users/zeno.su/Desktop/dailyeconomy/FRED_20250407/CSUSHPINSA_20250407.csv
+2025-04-07 16:45:27,654 - modules.data_loader - INFO - Loading measurement T10Y2Y from /Users/zeno.su/Desktop/dailyeconomy/FRED_20250407/T10Y2Y_20250407.csv
+2025-04-07 16:45:27,657 - modules.data_loader - INFO - Loading measurement DGS10 from /Users/zeno.su/Desktop/dailyeconomy/FRED_20250407/DGS10_20250407.csv
+2025-04-07 16:45:27,661 - __main__ - INFO - Loading context information from /Users/zeno.su/Desktop/dailyeconomy/fred_context.txt
+2025-04-07 16:45:27,662 - modules.data_loader - INFO - Loading context data from /Users/zeno.su/Desktop/dailyeconomy/fred_context.txt
+2025-04-07 16:45:27,662 - __main__ - INFO - Processing 8 measurements
+2025-04-07 16:45:27,662 - __main__ - INFO - Processing measurement: DGS2
+2025-04-07 16:45:27,856 - modules.visualizer - INFO - Saved visualization for DGS2 to /Users/zeno.su/Desktop/dailyeconomy/reports/visualizations/DGS2_trend.png
+2025-04-07 16:45:27,859 - modules.llm_insights - ERROR - Ollama service is not healthy: 404
+2025-04-07 16:45:27,859 - modules.llm_insights - WARNING - Using fallback insight for DGS2 due to LLM error: Error: Ollama service is not available (Status 404)
+2025-04-07 16:45:27,859 - __main__ - INFO - Processing measurement: NFCI
+2025-04-07 16:45:28,000 - modules.visualizer - INFO - Saved visualization for NFCI to /Users/zeno.su/Desktop/dailyeconomy/reports/visualizations/NFCI_trend.png
+2025-04-07 16:45:28,002 - modules.llm_insights - ERROR - Ollama service is not healthy: 404
+2025-04-07 16:45:28,002 - modules.llm_insights - WARNING - Using fallback insight for NFCI due to LLM error: Error: Ollama service is not available (Status 404)
+2025-04-07 16:45:28,002 - __main__ - INFO - Processing measurement: ICSA
+2025-04-07 16:45:28,112 - modules.visualizer - INFO - Saved visualization for ICSA to /Users/zeno.su/Desktop/dailyeconomy/reports/visualizations/ICSA_trend.png
+2025-04-07 16:45:28,114 - modules.llm_insights - ERROR - Ollama service is not healthy: 404
+2025-04-07 16:45:28,114 - modules.llm_insights - WARNING - Using fallback insight for ICSA due to LLM error: Error: Ollama service is not available (Status 404)
+2025-04-07 16:45:28,114 - __main__ - INFO - Processing measurement: RSAFS
+2025-04-07 16:45:28,206 - modules.visualizer - INFO - Saved visualization for RSAFS to /Users/zeno.su/Desktop/dailyeconomy/reports/visualizations/RSAFS_trend.png
+2025-04-07 16:45:28,208 - modules.llm_insights - ERROR - Ollama service is not healthy: 404
+2025-04-07 16:45:28,208 - modules.llm_insights - WARNING - Using fallback insight for RSAFS due to LLM error: Error: Ollama service is not available (Status 404)
+2025-04-07 16:45:28,209 - __main__ - INFO - Processing measurement: CPIAUCSL
+2025-04-07 16:45:28,352 - modules.visualizer - INFO - Saved visualization for CPIAUCSL to /Users/zeno.su/Desktop/dailyeconomy/reports/visualizations/CPIAUCSL_trend.png
+2025-04-07 16:45:28,354 - modules.llm_insights - ERROR - Ollama service is not healthy: 404
+2025-04-07 16:45:28,354 - modules.llm_insights - WARNING - Using fallback insight for CPIAUCSL due to LLM error: Error: Ollama service is not available (Status 404)
+2025-04-07 16:45:28,354 - __main__ - INFO - Processing measurement: CSUSHPINSA
+2025-04-07 16:45:28,456 - modules.visualizer - INFO - Saved visualization for CSUSHPINSA to /Users/zeno.su/Desktop/dailyeconomy/reports/visualizations/CSUSHPINSA_trend.png
+2025-04-07 16:45:28,458 - modules.llm_insights - ERROR - Ollama service is not healthy: 404
+2025-04-07 16:45:28,458 - modules.llm_insights - WARNING - Using fallback insight for CSUSHPINSA due to LLM error: Error: Ollama service is not available (Status 404)
+2025-04-07 16:45:28,458 - __main__ - INFO - Processing measurement: T10Y2Y
+2025-04-07 16:45:28,578 - modules.visualizer - INFO - Saved visualization for T10Y2Y to /Users/zeno.su/Desktop/dailyeconomy/reports/visualizations/T10Y2Y_trend.png
+2025-04-07 16:45:28,580 - modules.llm_insights - ERROR - Ollama service is not healthy: 404
+2025-04-07 16:45:28,580 - modules.llm_insights - WARNING - Using fallback insight for T10Y2Y due to LLM error: Error: Ollama service is not available (Status 404)
+2025-04-07 16:45:28,580 - __main__ - INFO - Processing measurement: DGS10
+2025-04-07 16:45:28,720 - modules.visualizer - INFO - Saved visualization for DGS10 to /Users/zeno.su/Desktop/dailyeconomy/reports/visualizations/DGS10_trend.png
+2025-04-07 16:45:28,722 - modules.llm_insights - ERROR - Ollama service is not healthy: 404
+2025-04-07 16:45:28,722 - modules.llm_insights - WARNING - Using fallback insight for DGS10 due to LLM error: Error: Ollama service is not available (Status 404)
+2025-04-07 16:45:28,722 - __main__ - INFO - Calculating recession risk indicators
+2025-04-07 16:45:28,722 - modules.analyzer - INFO - Skipping risk calculation for NFCI: data from 2025-03-28 00:00:00 is before cutoff date 2025-03-30 16:45:28.722411
+2025-04-07 16:45:28,722 - modules.analyzer - INFO - Skipping risk calculation for ICSA: data from 2025-03-29 00:00:00 is before cutoff date 2025-03-30 16:45:28.722411
+2025-04-07 16:45:28,722 - modules.analyzer - INFO - Skipping risk calculation for RSAFS: data from 2025-02-01 00:00:00 is before cutoff date 2025-03-30 16:45:28.722411
+2025-04-07 16:45:28,722 - modules.analyzer - INFO - Skipping risk calculation for CPIAUCSL: data from 2025-02-01 00:00:00 is before cutoff date 2025-03-30 16:45:28.722411
+2025-04-07 16:45:28,722 - modules.analyzer - INFO - Skipping risk calculation for CSUSHPINSA: data from 2025-01-01 00:00:00 is before cutoff date 2025-03-30 16:45:28.722411
+2025-04-07 16:45:28,722 - __main__ - INFO - Generating overall economic summary
+2025-04-07 16:45:28,722 - modules.llm_insights - ERROR - Error generating overall summary: Unknown format code 'f' for object of type 'str'
+2025-04-07 16:45:28,722 - __main__ - INFO - Generating final report
+2025-04-07 16:45:28,727 - modules.report_generator - INFO - Generated report saved to /Users/zeno.su/Desktop/dailyeconomy/reports/Economy_Report_20250407.html
+2025-04-07 16:45:28,728 - __main__ - INFO - Report successfully generated: /Users/zeno.su/Desktop/dailyeconomy/reports/Economy_Report_20250407.html
+2025-04-07 16:46:43,520 - __main__ - INFO - Starting daily economy report generation for date: 20250407
+2025-04-07 16:46:43,520 - __main__ - INFO - Using new CSV format from directory: /Users/zeno.su/Desktop/dailyeconomy/FRED_20250407
+2025-04-07 16:46:43,520 - __main__ - INFO - Loading FRED data from /Users/zeno.su/Desktop/dailyeconomy
+2025-04-07 16:46:43,520 - modules.data_loader - INFO - Loading FRED data from directory /Users/zeno.su/Desktop/dailyeconomy/FRED_20250407
+2025-04-07 16:46:43,520 - modules.data_loader - INFO - Loading measurement DGS2 from /Users/zeno.su/Desktop/dailyeconomy/FRED_20250407/DGS2_20250407.csv
+2025-04-07 16:46:43,525 - modules.data_loader - INFO - Loading measurement NFCI from /Users/zeno.su/Desktop/dailyeconomy/FRED_20250407/NFCI_20250407.csv
+2025-04-07 16:46:43,526 - modules.data_loader - INFO - Loading measurement ICSA from /Users/zeno.su/Desktop/dailyeconomy/FRED_20250407/ICSA_20250407.csv
+2025-04-07 16:46:43,528 - modules.data_loader - INFO - Loading measurement RSAFS from /Users/zeno.su/Desktop/dailyeconomy/FRED_20250407/RSAFS_20250407.csv
+2025-04-07 16:46:43,528 - modules.data_loader - INFO - Loading measurement CPIAUCSL from /Users/zeno.su/Desktop/dailyeconomy/FRED_20250407/CPIAUCSL_20250407.csv
+2025-04-07 16:46:43,529 - modules.data_loader - INFO - Loading measurement CSUSHPINSA from /Users/zeno.su/Desktop/dailyeconomy/FRED_20250407/CSUSHPINSA_20250407.csv
+2025-04-07 16:46:43,530 - modules.data_loader - INFO - Loading measurement T10Y2Y from /Users/zeno.su/Desktop/dailyeconomy/FRED_20250407/T10Y2Y_20250407.csv
+2025-04-07 16:46:43,533 - modules.data_loader - INFO - Loading measurement DGS10 from /Users/zeno.su/Desktop/dailyeconomy/FRED_20250407/DGS10_20250407.csv
+2025-04-07 16:46:43,537 - __main__ - INFO - Loading context information from /Users/zeno.su/Desktop/dailyeconomy/fred_context.txt
+2025-04-07 16:46:43,537 - modules.data_loader - INFO - Loading context data from /Users/zeno.su/Desktop/dailyeconomy/fred_context.txt
+2025-04-07 16:46:43,537 - __main__ - INFO - Processing 8 measurements
+2025-04-07 16:46:43,537 - __main__ - INFO - Processing measurement: DGS2
+2025-04-07 16:46:43,729 - modules.visualizer - INFO - Saved visualization for DGS2 to /Users/zeno.su/Desktop/dailyeconomy/reports/visualizations/DGS2_trend.png
+2025-04-07 16:46:43,731 - modules.llm_insights - ERROR - Ollama service is not healthy: 404
+2025-04-07 16:46:43,731 - modules.llm_insights - WARNING - Using fallback insight for DGS2 due to LLM error: Error: Ollama service is not available (Status 404)
+2025-04-07 16:46:43,731 - __main__ - INFO - Processing measurement: NFCI
+2025-04-07 16:46:43,871 - modules.visualizer - INFO - Saved visualization for NFCI to /Users/zeno.su/Desktop/dailyeconomy/reports/visualizations/NFCI_trend.png
+2025-04-07 16:46:43,874 - modules.llm_insights - ERROR - Ollama service is not healthy: 404
+2025-04-07 16:46:43,874 - modules.llm_insights - WARNING - Using fallback insight for NFCI due to LLM error: Error: Ollama service is not available (Status 404)
+2025-04-07 16:46:43,874 - __main__ - INFO - Processing measurement: ICSA
+2025-04-07 16:46:43,988 - modules.visualizer - INFO - Saved visualization for ICSA to /Users/zeno.su/Desktop/dailyeconomy/reports/visualizations/ICSA_trend.png
+2025-04-07 16:46:43,990 - modules.llm_insights - ERROR - Ollama service is not healthy: 404
+2025-04-07 16:46:43,990 - modules.llm_insights - WARNING - Using fallback insight for ICSA due to LLM error: Error: Ollama service is not available (Status 404)
+2025-04-07 16:46:43,990 - __main__ - INFO - Processing measurement: RSAFS
+2025-04-07 16:46:44,090 - modules.visualizer - INFO - Saved visualization for RSAFS to /Users/zeno.su/Desktop/dailyeconomy/reports/visualizations/RSAFS_trend.png
+2025-04-07 16:46:44,092 - modules.llm_insights - ERROR - Ollama service is not healthy: 404
+2025-04-07 16:46:44,092 - modules.llm_insights - WARNING - Using fallback insight for RSAFS due to LLM error: Error: Ollama service is not available (Status 404)
+2025-04-07 16:46:44,092 - __main__ - INFO - Processing measurement: CPIAUCSL
+2025-04-07 16:46:44,238 - modules.visualizer - INFO - Saved visualization for CPIAUCSL to /Users/zeno.su/Desktop/dailyeconomy/reports/visualizations/CPIAUCSL_trend.png
+2025-04-07 16:46:44,240 - modules.llm_insights - ERROR - Ollama service is not healthy: 404
+2025-04-07 16:46:44,240 - modules.llm_insights - WARNING - Using fallback insight for CPIAUCSL due to LLM error: Error: Ollama service is not available (Status 404)
+2025-04-07 16:46:44,240 - __main__ - INFO - Processing measurement: CSUSHPINSA
+2025-04-07 16:46:44,341 - modules.visualizer - INFO - Saved visualization for CSUSHPINSA to /Users/zeno.su/Desktop/dailyeconomy/reports/visualizations/CSUSHPINSA_trend.png
+2025-04-07 16:46:44,343 - modules.llm_insights - ERROR - Ollama service is not healthy: 404
+2025-04-07 16:46:44,343 - modules.llm_insights - WARNING - Using fallback insight for CSUSHPINSA due to LLM error: Error: Ollama service is not available (Status 404)
+2025-04-07 16:46:44,343 - __main__ - INFO - Processing measurement: T10Y2Y
+2025-04-07 16:46:44,462 - modules.visualizer - INFO - Saved visualization for T10Y2Y to /Users/zeno.su/Desktop/dailyeconomy/reports/visualizations/T10Y2Y_trend.png
+2025-04-07 16:46:44,464 - modules.llm_insights - ERROR - Ollama service is not healthy: 404
+2025-04-07 16:46:44,464 - modules.llm_insights - WARNING - Using fallback insight for T10Y2Y due to LLM error: Error: Ollama service is not available (Status 404)
+2025-04-07 16:46:44,465 - __main__ - INFO - Processing measurement: DGS10
+2025-04-07 16:46:44,605 - modules.visualizer - INFO - Saved visualization for DGS10 to /Users/zeno.su/Desktop/dailyeconomy/reports/visualizations/DGS10_trend.png
+2025-04-07 16:46:44,606 - modules.llm_insights - ERROR - Ollama service is not healthy: 404
+2025-04-07 16:46:44,607 - modules.llm_insights - WARNING - Using fallback insight for DGS10 due to LLM error: Error: Ollama service is not available (Status 404)
+2025-04-07 16:46:44,607 - __main__ - INFO - Calculating recession risk indicators
+2025-04-07 16:46:44,607 - modules.analyzer - INFO - Skipping risk calculation for NFCI: data from 2025-03-28 00:00:00 is before cutoff date 2025-03-30 16:46:44.607161
+2025-04-07 16:46:44,607 - modules.analyzer - INFO - Skipping risk calculation for ICSA: data from 2025-03-29 00:00:00 is before cutoff date 2025-03-30 16:46:44.607161
+2025-04-07 16:46:44,607 - modules.analyzer - INFO - Skipping risk calculation for RSAFS: data from 2025-02-01 00:00:00 is before cutoff date 2025-03-30 16:46:44.607161
+2025-04-07 16:46:44,607 - modules.analyzer - INFO - Skipping risk calculation for CPIAUCSL: data from 2025-02-01 00:00:00 is before cutoff date 2025-03-30 16:46:44.607161
+2025-04-07 16:46:44,607 - modules.analyzer - INFO - Skipping risk calculation for CSUSHPINSA: data from 2025-01-01 00:00:00 is before cutoff date 2025-03-30 16:46:44.607161
+2025-04-07 16:46:44,607 - __main__ - INFO - Generating overall economic summary
+2025-04-07 16:46:44,608 - modules.llm_insights - ERROR - Ollama service is not healthy: 404
+2025-04-07 16:46:44,608 - modules.llm_insights - WARNING - Using fallback summary due to LLM error: Error: Ollama service is not available (Status 404)
+2025-04-07 16:46:44,608 - __main__ - INFO - Generating final report
+2025-04-07 16:46:44,614 - modules.report_generator - INFO - Generated report saved to /Users/zeno.su/Desktop/dailyeconomy/reports/Economy_Report_20250407.html
+2025-04-07 16:46:44,614 - __main__ - INFO - Report successfully generated: /Users/zeno.su/Desktop/dailyeconomy/reports/Economy_Report_20250407.html
+2025-04-07 17:03:59,799 - __main__ - INFO - Starting daily economy report generation for date: 20250407
+2025-04-07 17:03:59,800 - __main__ - INFO - Using new CSV format from directory: /Users/zeno.su/Desktop/dailyeconomy/FRED_20250407
+2025-04-07 17:03:59,800 - __main__ - INFO - Loading FRED data from /Users/zeno.su/Desktop/dailyeconomy
+2025-04-07 17:03:59,800 - modules.data_loader - INFO - Loading FRED data from directory /Users/zeno.su/Desktop/dailyeconomy/FRED_20250407
+2025-04-07 17:03:59,800 - modules.data_loader - INFO - Loading measurement DGS2 from /Users/zeno.su/Desktop/dailyeconomy/FRED_20250407/DGS2_20250407.csv
+2025-04-07 17:03:59,806 - modules.data_loader - INFO - Loading measurement NFCI from /Users/zeno.su/Desktop/dailyeconomy/FRED_20250407/NFCI_20250407.csv
+2025-04-07 17:03:59,807 - modules.data_loader - INFO - Loading measurement ICSA from /Users/zeno.su/Desktop/dailyeconomy/FRED_20250407/ICSA_20250407.csv
+2025-04-07 17:03:59,809 - modules.data_loader - INFO - Loading measurement RSAFS from /Users/zeno.su/Desktop/dailyeconomy/FRED_20250407/RSAFS_20250407.csv
+2025-04-07 17:03:59,809 - modules.data_loader - INFO - Loading measurement CPIAUCSL from /Users/zeno.su/Desktop/dailyeconomy/FRED_20250407/CPIAUCSL_20250407.csv
+2025-04-07 17:03:59,810 - modules.data_loader - INFO - Loading measurement CSUSHPINSA from /Users/zeno.su/Desktop/dailyeconomy/FRED_20250407/CSUSHPINSA_20250407.csv
+2025-04-07 17:03:59,811 - modules.data_loader - INFO - Loading measurement T10Y2Y from /Users/zeno.su/Desktop/dailyeconomy/FRED_20250407/T10Y2Y_20250407.csv
+2025-04-07 17:03:59,815 - modules.data_loader - INFO - Loading measurement DGS10 from /Users/zeno.su/Desktop/dailyeconomy/FRED_20250407/DGS10_20250407.csv
+2025-04-07 17:03:59,819 - __main__ - INFO - Loading context information from /Users/zeno.su/Desktop/dailyeconomy/fred_context.txt
+2025-04-07 17:03:59,819 - modules.data_loader - INFO - Loading context data from /Users/zeno.su/Desktop/dailyeconomy/fred_context.txt
+2025-04-07 17:03:59,819 - __main__ - INFO - Processing 8 measurements
+2025-04-07 17:03:59,819 - __main__ - INFO - Processing measurement: DGS2
+2025-04-07 17:04:00,018 - modules.visualizer - INFO - Saved visualization for DGS2 to /Users/zeno.su/Desktop/dailyeconomy/reports/visualizations/DGS2_trend.png
+2025-04-07 17:04:00,021 - modules.llm_insights - ERROR - Ollama service is not healthy: 404
+2025-04-07 17:04:00,021 - modules.llm_insights - WARNING - Using fallback insight for DGS2 due to LLM error: Error: Ollama service is not available (Status 404)
+2025-04-07 17:04:00,021 - __main__ - INFO - Processing measurement: NFCI
+2025-04-07 17:04:00,158 - modules.visualizer - INFO - Saved visualization for NFCI to /Users/zeno.su/Desktop/dailyeconomy/reports/visualizations/NFCI_trend.png
+2025-04-07 17:04:00,160 - modules.llm_insights - ERROR - Ollama service is not healthy: 404
+2025-04-07 17:04:00,160 - modules.llm_insights - WARNING - Using fallback insight for NFCI due to LLM error: Error: Ollama service is not available (Status 404)
+2025-04-07 17:04:00,160 - __main__ - INFO - Processing measurement: ICSA
+2025-04-07 17:04:00,268 - modules.visualizer - INFO - Saved visualization for ICSA to /Users/zeno.su/Desktop/dailyeconomy/reports/visualizations/ICSA_trend.png
+2025-04-07 17:04:00,270 - modules.llm_insights - ERROR - Ollama service is not healthy: 404
+2025-04-07 17:04:00,270 - modules.llm_insights - WARNING - Using fallback insight for ICSA due to LLM error: Error: Ollama service is not available (Status 404)
+2025-04-07 17:04:00,270 - __main__ - INFO - Processing measurement: RSAFS
+2025-04-07 17:04:00,365 - modules.visualizer - INFO - Saved visualization for RSAFS to /Users/zeno.su/Desktop/dailyeconomy/reports/visualizations/RSAFS_trend.png
+2025-04-07 17:04:00,367 - modules.llm_insights - ERROR - Ollama service is not healthy: 404
+2025-04-07 17:04:00,367 - modules.llm_insights - WARNING - Using fallback insight for RSAFS due to LLM error: Error: Ollama service is not available (Status 404)
+2025-04-07 17:04:00,367 - __main__ - INFO - Processing measurement: CPIAUCSL
+2025-04-07 17:04:00,510 - modules.visualizer - INFO - Saved visualization for CPIAUCSL to /Users/zeno.su/Desktop/dailyeconomy/reports/visualizations/CPIAUCSL_trend.png
+2025-04-07 17:04:00,512 - modules.llm_insights - ERROR - Ollama service is not healthy: 404
+2025-04-07 17:04:00,512 - modules.llm_insights - WARNING - Using fallback insight for CPIAUCSL due to LLM error: Error: Ollama service is not available (Status 404)
+2025-04-07 17:04:00,512 - __main__ - INFO - Processing measurement: CSUSHPINSA
+2025-04-07 17:04:00,612 - modules.visualizer - INFO - Saved visualization for CSUSHPINSA to /Users/zeno.su/Desktop/dailyeconomy/reports/visualizations/CSUSHPINSA_trend.png
+2025-04-07 17:04:00,614 - modules.llm_insights - ERROR - Ollama service is not healthy: 404
+2025-04-07 17:04:00,614 - modules.llm_insights - WARNING - Using fallback insight for CSUSHPINSA due to LLM error: Error: Ollama service is not available (Status 404)
+2025-04-07 17:04:00,614 - __main__ - INFO - Processing measurement: T10Y2Y
+2025-04-07 17:04:00,732 - modules.visualizer - INFO - Saved visualization for T10Y2Y to /Users/zeno.su/Desktop/dailyeconomy/reports/visualizations/T10Y2Y_trend.png
+2025-04-07 17:04:00,734 - modules.llm_insights - ERROR - Ollama service is not healthy: 404
+2025-04-07 17:04:00,734 - modules.llm_insights - WARNING - Using fallback insight for T10Y2Y due to LLM error: Error: Ollama service is not available (Status 404)
+2025-04-07 17:04:00,734 - __main__ - INFO - Processing measurement: DGS10
+2025-04-07 17:04:00,873 - modules.visualizer - INFO - Saved visualization for DGS10 to /Users/zeno.su/Desktop/dailyeconomy/reports/visualizations/DGS10_trend.png
+2025-04-07 17:04:00,875 - modules.llm_insights - ERROR - Ollama service is not healthy: 404
+2025-04-07 17:04:00,875 - modules.llm_insights - WARNING - Using fallback insight for DGS10 due to LLM error: Error: Ollama service is not available (Status 404)
+2025-04-07 17:04:00,875 - __main__ - INFO - Calculating recession risk indicators
+2025-04-07 17:04:00,876 - modules.analyzer - INFO - Skipping risk calculation for RSAFS: data from 2025-02-01 00:00:00 is before cutoff date 2025-03-24 17:04:00.875997
+2025-04-07 17:04:00,876 - modules.analyzer - INFO - Skipping risk calculation for CPIAUCSL: data from 2025-02-01 00:00:00 is before cutoff date 2025-03-24 17:04:00.875997
+2025-04-07 17:04:00,876 - modules.analyzer - INFO - Skipping risk calculation for CSUSHPINSA: data from 2025-01-01 00:00:00 is before cutoff date 2025-03-24 17:04:00.875997
+2025-04-07 17:04:00,876 - __main__ - INFO - Generating overall economic summary
+2025-04-07 17:04:00,877 - modules.llm_insights - ERROR - Ollama service is not healthy: 404
+2025-04-07 17:04:00,877 - modules.llm_insights - WARNING - Using fallback summary due to LLM error: Error: Ollama service is not available (Status 404)
+2025-04-07 17:04:00,877 - __main__ - INFO - Generating final report
+2025-04-07 17:04:00,882 - modules.report_generator - INFO - Generated report saved to /Users/zeno.su/Desktop/dailyeconomy/reports/Economy_Report_20250407.html
+2025-04-07 17:04:00,882 - __main__ - INFO - Report successfully generated: /Users/zeno.su/Desktop/dailyeconomy/reports/Economy_Report_20250407.html

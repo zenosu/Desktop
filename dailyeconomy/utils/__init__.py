@@ -1,0 +1,1 @@
+# Daily Economy Report Generator utilities 

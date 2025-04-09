@@ -1,0 +1,158 @@
+<prompt>
+  <title>Create a Comprehensive XML-Structured Reference Guide on Metaflow GPU Resource Management with Kubernetes Integration</title>
+  
+  <overview>
+    <description>
+      Metaflow provides robust GPU and accelerator support for ML workflows, particularly when using AWS Batch or Kubernetes. A thorough technical reference is needed that synthesizes information from both official documentation and source code into a structured, machine-readable format optimized for language model consumption.
+    </description>
+    <objective>
+      Develop a comprehensive technical reference document that details Metaflow's GPU resource management capabilities, focusing on the integration between the @resources decorator and Kubernetes orchestration, structured with semantic XML tags for efficient information retrieval by language models.
+    </objective>
+  </overview>
+  
+  <requirements>
+    <requirement id="1">
+      <title>Complete Documentation Integration</title>
+      <details>
+        Extract and synthesize all GPU-related information from the specified documentation files, preserving the technical relationships between concepts while organizing content in a logical hierarchy using XML tags with descriptive attributes.
+      </details>
+    </requirement>
+    <requirement id="2">
+      <title>Source Code Analysis Integration</title>
+      <details>
+        Analyze the implementation details from the specified source code files to document parameters, default values, constraints, and behaviors not fully covered in the documentation, linking these insights to the documentation concepts through consistent XML tag structures.
+      </details>
+    </requirement>
+    <requirement id="3">
+      <title>Semantic XML Schema Development</title>
+      <details>
+        Design and implement a consistent XML schema with meaningful tag names and attributes that organize the technical content hierarchically while enabling efficient information retrieval, with special focus on technical parameters, constraints, and interrelationships.
+      </details>
+    </requirement>
+    <requirement id="4">
+      <title>Distributed Computing GPU Orchestration</title>
+      <details>
+        Document the specific mechanisms and parameters for setting up distributed computing with GPUs across multiple nodes, including the interactions between @resources, @kubernetes, and specialized decorators like @torchrun, @deepspeed, etc.
+      </details>
+    </requirement>
+    <requirement id="5">
+      <title>Technical Parameter Documentation</title>
+      <details>
+        Create a comprehensive reference of all parameters related to GPU resource management, including their data types, default values, constraints, and behaviors in different execution contexts, sourced from both documentation and code analysis.
+      </details>
+    </requirement>
+  </requirements>
+  
+  <instructions>
+    <step number="1">
+      Systematically analyze the documentation files in this exact order to establish a conceptual hierarchy:
+      - First analyze the introduction (introduction.md) for the big picture context
+      - Then analyze the GPU compute documentation (gpu-compute.md) for core GPU concepts
+      - Next analyze the Kubernetes documentation (kubernetes.md) for K8s-specific GPU configuration
+      - Then analyze distributed computing (distributed-computing.md) for multi-node GPU setups
+      - Finally analyze the requesting resources documentation (requesting-resources.md) and API reference (kubernetes.md)
+    </step>
+    <step number="2">
+      Analyze source code files in this order to extract implementation details:
+      - First analyze the resources_decorator.py to understand base resource management
+      - Then analyze kubernetes_decorator.py to understand Kubernetes integration
+      - Finally check argo_workflows.py for any additional Kubernetes orchestration details
+    </step>
+    <step number="3">
+      Design an XML schema with semantic tags and attributes that can represent:
+      - Technical concepts (e.g., <gpu_concept>, <resource_parameter>)
+      - Hierarchical relationships (e.g., parent-child tag relationships)
+      - Parameter specifications (e.g., attributes for data types, defaults, constraints)
+      - Cross-references between related concepts
+      - Code examples and their explanations
+    </step>
+    <step number="4">
+      Create the reference document with these major sections, each using appropriate XML tags:
+      - Overview of Metaflow GPU capabilities and execution environments
+      - @resources decorator detailed specification and parameters
+      - @kubernetes decorator detailed specification and GPU-related parameters
+      - Distributed computing with GPUs across multiple nodes
+      - Advanced configuration options and optimizations
+      - Integration patterns and examples
+    </step>
+    <step number="5">
+      For each technical parameter documented, include these details with appropriate XML attributes:
+      - Parameter name and purpose
+      - Data type and constraints
+      - Default values (from both documentation and code analysis)
+      - Behavior in different execution contexts
+      - Relationships with other parameters
+      - Common usage patterns
+    </step>
+  </instructions>
+  
+  <considerations>
+    <point>
+      <title>Technical Accuracy Prioritization</title>
+      <details>
+        When documentation and source code differ, prioritize source code analysis for accuracy while noting the discrepancy using appropriate XML tags. This is particularly important for default values, parameter constraints, and behavior specifications.
+      </details>
+    </point>
+    <point>
+      <title>Information Density Optimization</title>
+      <details>
+        Structure the XML for maximum information density by using attributes for parameter specifications rather than nested tags when appropriate, and by minimizing redundancy through strategic cross-references between related concepts.
+      </details>
+    </point>
+    <point>
+      <title>Cross-Platform Variation Handling</title>
+      <details>
+        Document differences in GPU handling between AWS Batch and Kubernetes environments using consistent tagging patterns that make these differences immediately apparent to language models consuming the reference.
+      </details>
+    </point>
+    <point>
+      <title>Source Code Version Contextualization</title>
+      <details>
+        Include version context information in the XML structure to ensure the reference remains useful even as the Metaflow API evolves, particularly for implementation details extracted from source code analysis.
+      </details>
+    </point>
+  </considerations>
+  
+  <examples>
+    <example>
+      Example of semantic XML structure for a parameter:
+      <parameter name="gpu" type="int" default="None" decorator="@resources">
+        <description>Number of GPUs required for this step.</description>
+        <source_code_reference file="resources_decorator.py" line="25"/>
+        <related_parameters>
+          <parameter_ref name="gpu_vendor"/>
+        </related_parameters>
+        <usage_context>
+          <context name="local">Ignored for local execution</context>
+          <context name="kubernetes">Maps to Kubernetes resource requests</context>
+          <context name="batch">Maps to AWS Batch resource requirements</context>
+        </usage_context>
+      </parameter>
+    </example>
+    <example>
+      Example of XML structure for documenting integration between decorators:
+      <decorator_integration primary="@resources" secondary="@kubernetes">
+        <description>
+          The @resources decorator specifies resource requirements that are interpreted by the @kubernetes decorator when executing in a Kubernetes environment.
+        </description>
+        <behavior>
+          When both decorators are present, the maximum value for each resource parameter is used.
+        </behavior>
+        <code_example>
+          @resources(memory=60000, cpu=1, gpu=1)
+          @kubernetes(namespace="ml-training")
+          @step
+          def train_model(self):
+              # GPU-intensive training code
+        </code_example>
+      </decorator_integration>
+    </example>
+  </examples>
+  
+  <rules>
+    <rule>NEVER include comments, documentation (such as inline comments or documentation blocks), or tests in the generated code unless explicitly asked.</rule>
+    <rule>NEVER respect backward compatibility; always design the solution optimally for forward evolution of the codebase.</rule>
+    <rule>ALWAYS provide code examples as high-level patterns rather than rigid implementations, allowing flexibility for optimal solutions.</rule>
+    <rule>ALWAYS follow the xml output format this is specified, it is unacceptable to return a response that is not in this format</rule>
+  </rules>
+</prompt>

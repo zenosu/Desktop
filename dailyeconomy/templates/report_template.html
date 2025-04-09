@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Economy Report - {{ date }}</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 20px;
+        }
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        .report-date {
+            color: #7f8c8d;
+            font-style: italic;
+        }
+        .summary-section {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 5px;
+            margin-bottom: 30px;
+            border-left: 5px solid #3498db;
+        }
+        .risk-indicator {
+            display: flex;
+            align-items: center;
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .risk-low {
+            background-color: #d5f5e3;
+            border-left: 5px solid #2ecc71;
+        }
+        .risk-medium {
+            background-color: #fef9e7;
+            border-left: 5px solid #f1c40f;
+        }
+        .risk-high {
+            background-color: #fadbd8;
+            border-left: 5px solid #e74c3c;
+        }
+        .risk-value {
+            font-size: 24px;
+            font-weight: bold;
+            margin-right: 20px;
+        }
+        .risk-details {
+            flex-grow: 1;
+        }
+        .overview-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 30px;
+        }
+        .overview-table th, .overview-table td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        .overview-table th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+        .trend-up {
+            color: #2ecc71;
+        }
+        .trend-down {
+            color: #e74c3c;
+        }
+        .trend-stable {
+            color: #3498db;
+        }
+        .risk-low {
+            color: #2ecc71; /* Green */
+        }
+        .risk-medium {
+            color: #f1c40f; /* Yellow/Orange */
+        }
+        .risk-high {
+            color: #e74c3c; /* Red */
+        }
+        .measurement-section {
+            margin-bottom: 50px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .measurement-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+        }
+        .measurement-title {
+            margin: 0;
+            color: #2c3e50;
+        }
+        .measurement-value {
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .measurement-visualization {
+            width: 100%;
+            max-width: 800px;
+            margin: 20px auto;
+            display: block;
+        }
+        .historical-comparison {
+            margin-top: 20px;
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+        }
+        .historical-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .historical-table th, .historical-table td {
+            padding: 8px 10px;
+            border-bottom: 1px solid #ddd;
+            text-align: left;
+        }
+        .insight-box {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #e8f4fc;
+            border-radius: 5px;
+            border-left: 5px solid #3498db;
+        }
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+            color: #7f8c8d;
+        }
+        .data-update-info {
+            background-color: #eaf2f8;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+        .weight-info {
+            background-color: #eaf2f8;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Daily Economy Report</h1>
+        <h2>{{ date }}</h2>
+        <p class="report-date">Generated on {{ report_date }}</p>
+    </header>
+    
+    <section class="summary-section">
+        <h2>Economic Overview</h2>
+        
+        <div class="risk-indicator risk-{{ recession_risk.category|lower }}">
+            <div class="risk-value">
+                {{ recession_risk.category }} Risk
+                <div style="font-size: 14px; font-weight: normal;">(Weighted average points: {{ recession_risk.points }})</div>
+            </div>
+            <div class="risk-details">
+                <p>Based on analysis of {{ recession_risk.indicators }} economic indicators.</p>
+                <p style="font-size: 0.9em; font-style: italic;">Note: Risk scores only calculated for data from the past 14 days (since {{ recession_risk.cutoff_date }})</p>
+                
+                <div class="weight-info">
+                    <h4 style="margin-top: 0;">Risk Calculation Weights</h4>
+                    <ul>
+                        {% for indicator, weight in recession_risk.weights.items() %}
+                        <li><strong>{{ indicator }}:</strong> Weight {{ weight }}</li>
+                        {% endfor %}
+                        <li><strong>All other indicators:</strong> Weight 1.0</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="summary-content">
+            {{ overall_summary|safe }}
+        </div>
+    </section>
+    
+    <h2>Economic Indicators Overview</h2>
+    <table class="overview-table">
+        <thead>
+            <tr>
+                <th>Indicator</th>
+                <th>Latest Value</th>
+                <th>Change</th>
+                <th>Last Updated</th>
+                <th>Update Frequency</th>
+                <th>Change Meaning</th>
+                <th>Risk Score</th>
+                <th>Risk Interpretation</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in trend_table %}
+            <tr>
+                <td>{{ item.title }} ({{ item.id }})</td>
+                <td>{{ item.latest_value }}</td>
+                <td class="trend-{{ item.direction }}">{{ item.change }}</td>
+                <td>{{ item.date }}</td>
+                <td>{{ item.frequency }}</td>
+                <td>{{ item.change_explanation }}</td>
+                <td class="risk-{{ item.risk|lower if item.risk in ['Low', 'Medium', 'High'] else 'medium' }}">{{ item.risk }}</td>
+                <td>{{ item.risk_explanation }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    
+    <h2>Detailed Analysis</h2>
+    
+    {% for section in measurement_sections %}
+    <div class="measurement-section">
+        <div class="measurement-header">
+            <h3 class="measurement-title">{{ section.title }} ({{ section.id }})</h3>
+            <div class="measurement-value" style="display: none;">
+                {{ section.latest_value }} {{ section.units }}
+                <span class="trend-{{ section.trend_direction|lower }}">{{ section.change }}</span>
+            </div>
+        </div>
+        
+        <p>{{ section.description }}</p>
+        <p><strong>Update Frequency:</strong> {{ section.frequency }}</p>
+        <p><strong>Latest Date:</strong> {{ section.latest_date }}</p>
+        <p><strong>Latest Value:</strong> {{ section.latest_value }} {{ section.units }} 
+           <span class="trend-{{ section.trend_direction|lower }}">{{ section.change }}</span></p>
+        
+        {% if section.visualization %}
+        <img src="{{ section.visualization }}" alt="{{ section.title }} Trend" class="measurement-visualization">
+        {% endif %}
+        
+        <div class="insight-box">
+            <h4>Analysis & Insight</h4>
+            {{ section.insight|safe }}
+        </div>
+        
+        {% if section.historical %}
+        <div class="historical-comparison">
+            <h4>Historical Crisis Trend Comparison</h4>
+            
+            <div style="margin-bottom: 15px; padding: 10px; background-color: #f0f8ff; border-radius: 5px;">
+                <h5 style="margin-top: 0;">Current Trend</h5>
+                <p><strong>3-Month Change:</strong> {{ section.current_trend["3month_change"] if section.current_trend else "N/A" }} 
+                   {% if section.current_trend and section.current_trend["3month_date"] %}(since {{ section.current_trend["3month_date"] }}){% endif %}</p>
+                <p><strong>6-Month Change:</strong> {{ section.current_trend["6month_change"] if section.current_trend else "N/A" }}
+                   {% if section.current_trend and section.current_trend["6month_date"] %}(since {{ section.current_trend["6month_date"] }}){% endif %}</p>
+            </div>
+            
+            <table class="historical-table">
+                <thead>
+                    <tr>
+                        <th>Crisis Event</th>
+                        <th>Similarity Score</th>
+                        <th>Assessment</th>
+                        <th>3-Month Change</th>
+                        <th>6-Month Change</th>
+                        <th>Change to Trough</th>
+                        <th>Days to Trough</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for event in section.historical %}
+                    <tr>
+                        <td>{{ event.event }}</td>
+                        <td>{{ event.similarity_score }}</td>
+                        <td>{{ event.similarity_assessment }}</td>
+                        <td>{{ event.event_3m_change }}</td>
+                        <td>{{ event.event_6m_change }}</td>
+                        <td>{{ event.to_trough_change }}</td>
+                        <td>{{ event.days_to_trough }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            
+            <div style="margin-top: 15px; font-size: 0.9em; color: #666;">
+                <p><strong>Note:</strong> Similarity score indicates how closely current trends match historical crisis patterns (higher = more similar).</p>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+    {% endfor %}
+    
+    <footer>
+        <p>This report is generated automatically using FRED economic data.</p>
+    </footer>
+</body>
+</html> 
